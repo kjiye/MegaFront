@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <title></title>
+    <style>
+      a {
+        text-decoration:none;
+      }
+      .container {
+        padding: 20px 10px 10px 10px;
+        background-color:orangered;
+      }
+      .line {
+        background-color:white;
+        height:2px;
+      }
+      .content {
+        margin-top:10px;
+        padding:100px 0;
+        background-color:white;
+        text-align:center;
+      }
+      .logo_view {
+        display:inline-block;
+        padding:40px;
+        border-radius:50%;
+        border:3px solid orangered;
+      }
+      p {
+        font-size:30px;
+        font-weight:800;
+        color:orangered;
+      }
+      .menu {
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        margin-top:2px;
+        background-color:white;
+      }
+      .menu a {
+        display:inline-block;
+        color:orangered;
+        font-weight:600;
+      }
+      .left_btn {
+        padding:20px;
+      }
+      .right_btn a {
+        padding:20px 10px;
+      }
+      .right_btn a:nth-child(3) {
+        padding-right:20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="line"></div>
+      <div class="content">
+        <div class="logo_view">
+          <img src="https://image.flaticon.com/icons/png/128/3082/3082005.png" width="120" height="120" />
+        </div>
+        <p>MEGA IT FRONTEND</p>
+      </div>
+      <div class="menu">
+        <a href="#" class="left_btn">Button 1</a>
+        <div class="right_btn">
+          <a href="#">Button 2</a><a href="#">Button 3</a><a>Button 4</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

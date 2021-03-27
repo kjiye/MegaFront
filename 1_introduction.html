@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>레이아웃 기본 속성</title>
+    <style>
+      div {
+        display: inline-block;
+        width: 300px;
+        height:300px;
+        background-color: grey;
+        padding:20px;
+        border:5px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- "border: 선굵기 선종류(solid, dashed, dotted 등) 선색상" -->
+    <!-- 선 또한 웹 브라우저 상의 px 공간을 차지하고 있다 -->
+    <!-- 박스의 가로 세로는? (300px + 20px + 20px + 5px + 5px)px * (300px + 20px + 20px + 5px + 5px)px -->
+    <!--<div>300px*300px</div>-->
+    <!-- box-sizing 속성 : 박스의 크기를 어떤 것을 기준으로 계산할지를 정하는 속성 -->
+    <!-- 
+        <box-sizing 속성 값 종류>
+        content-box 컨텐츠 영역을 기준으로 크기를 정한다
+        border-box 테두리를 기준으로 크기를 정한다
+    -->
+    <p>
+      <img src="https://t1.daumcdn.net/cfile/tistory/22670E3A58AA946F10" />
+    </p>
+    <!-- width,height로 지정한 값이 컨텐츠 영역에 적용되어 컨텐츠의 가로 세로 값으로 계산된다 -->
+    <div style="box-sizing: content-box">box-sizing:content-box</div>
+    <!-- width,height로 지정한 값이 테두리를 기준으로 적용되기 때문에 '실제 전체 크기'로 표시된다 -->
+    <div style="box-sizing: border-box">box-sizing:border-box</div>
+    
+    <!-- css의 선택자 -->
+    <!-- '선택자'라는 것은 수많은 html 요소(element)들 중에서 어떤 것을 선택하고 지정해서 속성을 적용할 것인지 정의할 때 사용되는 개념-->
+    <!--
+      <선택자 종류>
+      * : 전체 선택자. 전체 요소를 대상으로 한다.
+      태그명 : 타입(type) 선택자. 지정된 태그 타입을 대상으로 속성을 적용한다.
+      #아이디명 : 아이디(id) 선택자. 해당 아이디 값을 갖는 요소를 대상으로 속성을 적용한다. (아이디 명칭은 중복 사용 불가!)
+      .클래스명 : 클래스(class) 선택자. 해당 클래스 값을 갖는 요소를 대상으로 속성을 적용한다. (클래스는 중복 사용 가능!)
+    -->
+  </body>
+</html>

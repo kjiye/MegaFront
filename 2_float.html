@@ -1,0 +1,72 @@
+<head>
+  <title>float 속성과 clear</title>
+  <style>
+    div {
+      padding: 20px 0;  /* padding: 상하px 좌우px */
+      width: 600px;
+      background-color:antiquewhite;
+    }
+    img {
+      float:left;
+    }
+    div.container {
+      /*float:left;*/
+      /*overflow: hidden;*/
+    }
+    #clear {
+      clear:left;
+    }
+  </style>
+  <body>
+    <!-- float 속성 : 기본적인 요소들의 흐름에서 벗어나 특정 요소를 둥둥 떠있는 것처럼 표현하는 속성 -->
+    <!-- 
+      float의 속성 값 종류
+      left : 요소가 떠있는 방향을 "왼쪽 > 오른쪽"으로 지정한다
+      right : 요소가 떠있는 방향을 "오른쪽 > 왼쪽"으로 지정한다 
+      none : 기본 설정 값으로, 요소를 띄우지 않는다
+    -->
+    <!-- 기본적이로 일반적인 흐름 형태 -->
+    <div>
+      <!-- block 속성을 가진 h태그 -->
+      <!-- 
+        제목을 표시할 때 사용되는 태그로 h1...h6까지의 종류를 가지고 있고, 이들 간의 차이는 '크기'에 있다. (대제목, 소제목)
+      -->
+      <h2>HTML 요소들의 기본적인 흐름 구조 확인하기</h2>
+      <p>
+        우리가 태그를 작성하는 순서대로 좌측 상단부터 아래쪽으로 화면 흐름이 구성된다.
+      </p>
+    </div>
+    <!--줄바꿈 처리에 사용되는 태그로 주로 문서 형태나 작은 요소들의 배치를 바꿀 때 사용된다-->
+    <br/>
+    <br/>
+    <!-- float을 사용한 형태 -->
+    <!-- 
+      padding-bottom 20px이 적용된 영역을 확인하기.
+      우리 눈으로 보기에는 img 태그의 하단이 가장 마지막 컨텐츠 영역의 기준이 되어야 할 것 같지만,
+      img태그는 float 상태이기 때문에 엄밀히 따지면 div태그 안에 감싸져 있는 상태가 아니다
+    -->
+    <div class="container">
+      <h2>화면 흐름을 벗어나서 부유하는 Float 속성 확인하기</h2>
+      <img src="https://play-lh.googleusercontent.com/IeNJWoKYx1waOhfWF6TiuSiWBLfqLb18lmZYXSgsH1fvb8v1IYiZr5aYWe0Gxu-pVZX3" width="100" height="100"/>
+      <p>
+        float 속성이 적용된 요소는 화면 위를 둥둥 떠다니기 때문에 다음에 배치되는 태그와, 부모 태그가 영향을 받는다.
+      </p>
+      <p id="clear">
+        float에 영향을 받지 않는 형제 요소
+      </p>
+    </div>
+    <!-- float을 해제하는 방법 -->
+    <!-- 
+      float 속성을 가진 자식 요소는 부모 요소가 감싸지 못하기 때문에 레이아웃을 구성하기 매우 까다로워진다.
+      그래서 float의 영향을 받지 않도록 '해제(clear)'시켜주는 방법이 있다.
+      
+      *부모 요소가 floating된 자식 요소를 감싸지 못하고 있을 때 사용하는 clear 방법들
+      1) 부모 요소에게도 float 속성을 적용하기
+      2) 부모 요소 밖으로 넘치는 자식 요소들을 숨김 처리하는 overflow: hidden 속성을 적용하기 (넘치는 요소들을 숨김 처리하기 위해서 float된 자식 요소의 너비를 인지하게 된다)
+
+      *형제 요소가 float의 영향을 받지 않게 만드는 방법 clear
+      *clear의 속성 값 종류는 left(float left값을 취소), right(float right값을 취소), both(양쪽을 취소), none(기본값. clear속성 없음)이 있다.
+      1) clear: both
+    -->
+  </body>
+</head>

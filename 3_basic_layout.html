@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <title></title>  
+    <style>
+      /* 기본적으로 적용되어 있는 여백 공간을 초기화 해주기 위해 전체 선택자를 이용한다 */
+      *{
+        margin:0;
+      }
+      #container {
+        background-color:antiquewhite;
+        margin:0 auto;
+        width: 910px;
+        height:100%;
+        padding: 10px;
+      }
+      #header {
+        padding: 20px 0;
+        background-color:rosybrown;
+        text-align:center;
+      }
+      /* 이 html 문서 안에는 h1태그가 하나뿐이기 때문에 h1이라고 기재해도 문제 없다 */
+      #header h1 {
+        color:white;
+      }
+      #navigator {
+        margin-top:10px;
+        height:40px;
+        background-color:cadetblue;
+      }
+      #banner {
+        margin-top:10px;
+        padding:10px;
+        background-color:white;
+        overflow:hidden;  /* floating된 자식요소들을 감싸주기 위해서 사용 */
+      }
+      #banner div {  /* 여러 요소에 동일하게 적용하는 속성은 공통적으로 표기할 수 있는 선택자 방식을 활용해서 작성 */
+        float:left;
+        height:200px;
+      }
+      #banner #inner_banner1 {
+        margin-right:10px;
+        width:600px;
+        background-color:darkviolet;
+      }
+      #banner #inner_banner2 {
+        width:280px;  /* 910 - 10(좌측 padding) - 10(중간 margin) - 10(우측 padding) */
+        background-color:aqua;
+      }
+      #content {
+        margin-top:10px;
+        background-color:red;
+        overflow:hidden;
+      }
+      #content .section {
+        float:left;
+        margin-right:10px;
+        /* (910 - 10 - 10 - 10) / 4 */
+        width:220px;
+        height:220px;
+        background-color:white;
+      }
+      /* :first-child, :last-child 선택자 */
+      /*
+        first-child 동일 선상에 있는 자식 요소들 중 첫번째
+        last-child 동일 선상에 있는 자식 요소들 중 마지막
+      */
+      #content .section:last-child {
+        margin-right:0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <h1>기본 레이아웃 연습</h1>
+      </div>
+      <div id="navigator"></div>
+      <div id="banner">
+        <div id="inner_banner1"></div>
+        <div id="inner_banner2"></div>
+      </div>
+      <div id="content">
+        <div class="section"></div>
+        <div class="section"></div>
+        <div class="section"></div>
+        <div class="section"></div>
+      </div>
+    </div>
+  </body>
+</html>

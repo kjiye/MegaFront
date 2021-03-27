@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>float 실습</title>
+    <style>
+      ul {
+        list-style: none; /* 리스트 스타일 초기화 */
+        overflow:hidden;
+      }
+      .menu {
+        
+      }
+      .menu li {
+        float:left;
+        margin-right:20px;
+        background-color: #1fade0;
+        border-radius:12px;
+        width:70px;
+        height:70px;
+        box-sizing:border-box;
+      }
+      .menu li a {
+        display:inline-block;
+        padding:20px;
+      }
+      .menu li a img {
+        width:30px;
+        height:30px;
+      }
+      div.back_box {
+        background-color:#23d984;
+        opacity:70%;
+        height:110px;
+      }
+      div.front_box {
+        border:20px solid #ff772e;
+        width:100px;
+        height:400px;
+        opacity:60%;
+        float:left;
+      }
+      h1 {
+        padding:10px;
+        background-color:red;
+        opacity:70%;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ul - li는 하나의 세트로 쓰이는 태그. 리스트를 표현할 때 사용된다 -->
+    <ul>
+      <li>바나나</li>
+      <li>사과</li>
+      <li>딸기</li>
+    </ul>
+    <!-- float 속성과 메뉴 만들기 -->
+    <ul class="menu">
+      <li>
+        <a href="https://www.naver.com/">
+          <img src="https://www.flaticon.com/svg/vstatic/svg/899/899789.svg?token=exp=1615125443~hmac=dbd045c71c463aa8696e181c88ae2f38" alt="board"/>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/">
+          <img src="https://www.flaticon.com/svg/vstatic/svg/899/899789.svg?token=exp=1615125443~hmac=dbd045c71c463aa8696e181c88ae2f38" alt="board"/>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.daum.net/">
+          <img src="https://www.flaticon.com/svg/vstatic/svg/899/899789.svg?token=exp=1615125443~hmac=dbd045c71c463aa8696e181c88ae2f38" alt="board"/>
+        </a>
+      </li>
+    </ul>
+    <!-- float을 이용한 다양한 표현 활용 -->
+    <div class="back_box">
+      <div class="front_box"></div>
+      <h1>Frontend Developer</h1>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title></title>
+    <style>
+      * {
+        margin:0;
+        padding:0;
+      }
+      body {
+        background-color:#1cd98d;
+      }
+      .login_container {
+        width:400px;
+        margin:200px auto;
+        background-color:white;
+/*        padding:20px 20px 20px 20px;*/
+/*        padding:5px 20px 20px 20px;  padding: 상 우 하 좌*/
+        padding: 15px 30px 30px 30px;
+        border-radius:4px;
+      }
+      input {
+        width:100%;
+        margin-top:15px;
+        padding:15px;
+        background-color:#ebebeb;
+        border:0;
+        font-size:16px;
+      }
+      a {
+        text-decoration:none; /* a 태그를 클릭한 후 생기는 밑줄 처리 등 미사용 처리 */
+        display:inline-block;
+        width:100%;
+        text-align:center;
+        color:#11ab6d;
+      }
+      #login {
+        padding:15px 0;
+        margin-top:15px;
+        background-color:#11ab6d;
+        font-size:16px;
+        font-weight:600; /* font-weight 는 폰트의 굵기를 조절한다 100~900 (기본 값 500)*/
+        color:white;
+      }
+      #login:hover {
+        background-color:#0d784d;
+      }
+      #join {
+        margin-top:10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login_container">
+      <input placeholder="ID"/>
+      <input placeholder="PASSWORD"/>
+      <!-- 실제 폼을 작성할 때는 input 태그 안에 입력된 갑을 전송해주는 button 태그를 쓰게될 것 -->
+      <a href="#" id="login">LOGIN</a>
+      <a href="#" id="join">Create an account</a>
+    </div>
+  </body>
+</html>

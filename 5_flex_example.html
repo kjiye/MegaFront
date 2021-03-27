@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <title>flex</title>
+    <style>
+      #flex_container {
+        display:flex;
+        flex-direction:column;
+        padding:20px;
+        background-color:gray;
+      }
+      #flex_container div {
+        font-size:50px;
+        font-weight:600;
+        color: white;
+        text-align:center;
+      }
+      .a {
+        padding:20px 0;
+        background-color:greenyellow;
+      }
+      .row_wrapper {
+        display:flex;
+        flex-direction:row;
+        background-color:white;
+        padding:20px;
+      }
+      .row_wrapper.center {
+        justify-content: center;;
+      }
+      .row_wrapper.around {
+        justify-content: space-around;
+      }
+      .b {
+        width:20%;
+        background-color:coral;
+      }
+      .c {
+        width:10%;
+        background-color:rebeccapurple;
+      }
+      .d {
+        width:30%;
+        background-color:darkblue;
+      }
+      .e {
+        padding: 20px 0;
+        background-color:cadetblue;
+      }
+      .f {
+        width: 30%;
+        background-color: tomato;
+      }
+      .g {
+        width: 30%;
+        background-color: teal;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="flex_container">
+      <div class="a">A</div>
+      <div class="row_wrapper center">
+        <div class="b">B</div>
+        <div class="c">C</div>
+        <div class="d">D</div>
+      </div>
+      <div class="e">E</div>
+      <div class="row_wrapper around">
+        <div class="f">F</div>
+        <div class="g">G</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>flex</title>
+    <style>
+      #container {
+        display: flex; /* display 속성을 flex로 지정 */
+        flex-direction: row;  /* 배치 방향 설정 */
+        justify-content: space-around; /* 메인 축 정렬 */
+        align-items: flex-end; /* 교차 축 정렬 */
+        width:100%;
+        height:200px;
+        background-color:beige;
+      }
+      .child_item {
+        font-size:30px;
+        font-weight:600;
+        color:white;
+      }
+      .child_item:first-child {
+        width: 20%;
+        height: 150px;
+        background-color: sandybrown;
+      }
+      .child_item:nth-child(2) {
+        width: 30%;
+        height: 150px;
+        background-color: yellowgreen;
+      }
+      .child_item:last-child {
+        width: 10%;
+        height: 150px;
+        background-color: dodgerblue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- display flex : 컨테이너가 자식 요소들을 정렬할 때 활용하는 속성으로, display 속성 값 중 하나. -->
+    <!-- 
+      flex 속성의 특징
+      1) 내부 요소들을 감싸는 컨테이너(부모) 요소에 적용하는 속성 ***
+      2) 내부 요소들에 적용하는 속성
+    -->
+    <!-- 
+      flex-direction 속성 값 row(가로 방향), row-reverse(가로 방향 역순), column(세로 방향)
+      justify-content 속성 값 center(메인 축 중심부), space-between(첫 요소를 시작점에, 마지막 요소를 끝부분에 배치), space-around(요소 중심으로 균일한 간격 생성)
+      align-items 속성 값 flex-end(끝부분에서 정렬), flex-start(시작지점에서 정렬), center(중심부)
+    -->
+    <div id="container">
+      <div class="child_item">A</div>
+      <div class="child_item">B</div>
+      <div class="child_item">C</div>
+    </div>
+  
+  </body>
+</html>

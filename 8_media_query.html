@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>media query</title>
+        <style>
+            #content {
+                margin:40px;
+            }
+            #content div {
+                height:200px;
+            }
+            .red {
+                background-color:red;
+            }
+            .green {
+                background-color:green;
+            }
+            .yellow {
+                background-color:yellow;
+            }
+            .blue {
+                background-color:blue;
+            }
+            /*
+            @media only(not) 미디어유형 and 적용조건 {적용할 스타일 속성}
+            (미디어유형 : screen, tv, all)
+            */
+            /*
+                min-width, max-width
+                min-height, max-height
+            */
+            @media only screen and (min-width:800px) {
+                #content div {
+                    display:inline-block;
+                    width:25%;
+                }
+            }
+            @media only screen and (max-width:800px) and (min-width:540px) {
+                #content div {
+                    display:inline-block;
+                    width:50%;
+                }
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <div class="red"></div><div class="green"></div><div class="yellow"></div><div class="blue"></div>
+        </div>
+    </body>
+</html>

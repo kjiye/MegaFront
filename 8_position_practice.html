@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title></title>
+    <style>
+      *{
+        margin:0;
+      }
+      .container {
+        position:relative;
+        margin:200px auto;
+        width:50%;
+        height:200px;
+        background-color:white;
+        border:12px solid lightgray;
+        border-radius:16px;
+      }
+      .wrapper {
+        position:absolute;
+        top:40px;
+      }
+      .left {
+        left:-22px;
+      }
+      .right {
+        right:-22px;
+      }
+      a {
+        display:inline-block;
+        border-radius:50%;
+        opacity:60%;
+      }
+      .small {
+        width:30px;
+        height:30px;
+      }
+      .medium {
+        width:50px;
+        height:50px;
+      }
+      .large {
+        width:80px;
+        height:80px;
+      }
+      .blue {
+        background-color:dodgerblue;
+      }
+      .yellow {
+        background-color:yellow;
+      }
+      .red {
+        background-color:red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>position 속성 활용하기</h3>
+      <div class="wrapper left">
+        <a class="large yellow"></a>
+        <a class="medium red"></a>
+        <a class="small blue"></a>
+      </div>
+      <div class="wrapper right">
+        <a class="small yellow"></a>
+        <a class="medium blue"></a>
+        <a class="large red"></a>
+      </div>
+    </div>
+  </body>
+</html>

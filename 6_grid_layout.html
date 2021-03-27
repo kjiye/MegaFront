@@ -1,0 +1,61 @@
+<html>
+  <head></head>
+  <style>
+    #grid_container {
+      display:grid;
+      grid-template-rows:15% auto 15%;
+      grid-gap:20px;
+      padding:20px;
+      height:100%;
+      background-color:lightblue;
+    }
+    #header {
+      background-color:azure;
+    }
+    #content {
+      display:grid;
+      grid-template-columns:2fr 8fr;
+      grid-column-gap:20px;
+    }
+    #navigator {
+      background-color:white;
+    }
+    #article {
+      padding:20px;
+      background-color:lightsteelblue;
+    }
+    #footer {
+      background-color:floralwhite;
+    }
+    #article div {
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap:20px;
+      background-color:white;
+    }
+    #article div span {
+      display:inline-block;
+      padding:20px;
+      height:300px;
+      background-color:beige;
+      font-size:30px;
+    }
+  </style>
+  <body>
+    <div id="grid_container">
+      <div id="header">header</div>
+      <div id="content">
+        <div id="navigator">navigator</div>
+        <div id="article">
+          content
+          <div>
+            <span>A</span>
+            <span>B</span>
+            <span>C</span>
+          </div>
+        </div>
+      </div>  
+      <div id="footer">footer</div>
+    </div>
+  </body>
+</html>

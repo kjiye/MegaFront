@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>grid 요소들의 비율</title>
+    <style>
+      #grid_container {
+        display:grid;
+        width:400px;
+        height:400px;
+/*        grid-template-rows:1fr 1fr;  비율을 지정할 때 사용. 총 2행을 1:1 비율로 배치한다 */
+        grid-template-rows: repeat(2, 1fr); /* repeat(반복할 총 횟수, 값) 함수 사용. 위의 표현과 동일. 총 2행을 1:1 비율로 배치한다 */
+/*        grid-template-columns:3fr 1fr 1fr;   총 3열을 3:1:1 비율로 배치한다 */
+/*        grid-template-columns: auto auto auto;  총 3열을 균등한 비율로 배치한다 */
+        background-color:antiquewhite;
+      }
+      .grid_item {
+        background-color:mediumvioletred;
+        font-size:30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="grid_container">
+      <div class="grid_item">1</div>
+      <div class="grid_item">2</div>
+      <div class="grid_item">3</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>
+    </title>
+    <style>
+      * {
+        margin:0;
+      }
+      .wrapper {
+        margin-top:50px;
+        background-color:beige;
+        padding: 0 20px;
+        text-align: center;
+      }
+      .wrapper div {
+        display:inline-block;
+        margin-right:10px;
+        width:200px;
+        height:200px;
+        background-color:lightsteelblue;
+        font-size:30px;
+        font-weight:600;
+        color:white;
+      }
+      .wrapper div:last-child {
+        margin-right:0;
+      }
+      .wrapper div:nth-child(2) {
+        background-color:yellowgreen;
+      }
+      #relative {
+        position:relative;
+        top:30px;
+        left:0px;
+      }
+      #absolute {
+        position:absolute;
+        top:30px;
+        left:0px;
+      }
+      #fixed {
+        position:fixed;
+        top:30px;
+        left:0px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- position: 요소들의 위치를 제어하는 속성 -->
+    <!-- 
+      postion 속성 값 종류
+      static : 요소들의 기본 값. 위 > 아래, 왼 > 오 방향으로 요소들이 배치되는 것.
+      relative : 요소가 static 상태였을 때의 위치를 기준으로 이동 배치된다.
+      absolute : 요소 자신의 가장 가까운 부모 요소(static 속성을 가진 것은 제외)의 위치를 기준으로 이동 배치된다.
+      fixed : 스크린 viewport를 기준으로 위치 값을 설정한다.
+    -->
+    <!-- 
+      위치 속성 함께 사용하기
+      top: 위를 기준으로 적용할 이동 거리 값
+      left: 왼쪽을 기준으로 적용할 이동 거리 값
+      right: 오른쪽을 기준으로 적용할 이동 거리 값
+      bottom : 아래쪽을 기준으로 적용할 이동 거리 값
+    -->
+    <!-- relative -->
+    <div class="wrapper">
+      <div>static</div>
+      <div id="relative">relative</div>
+      <div>static</div>
+    </div>
+    
+    <!-- absolute -->
+    <!-- absolute를 적용하는 요소의 부모 요소들 중 relative가 적용된 요소를 기준으로 이동 -->
+    <!-- 기준이 될 부모요소가 없을 시 body를 기준으로 삼는다 (문서 전체를 기준으로) -->
+    <div class="wrapper" style="position:relative;">
+      <div>static</div>
+      <div id="absolute">absolute</div>
+      <div>static</div>
+    </div>
+    
+    <!-- fixed -->
+    <div class="wrapper">
+      <div>static</div>
+      <div id="fixed">fixed</div>
+      <div>static</div>
+    </div>
+    
+  </body>
+</html>
