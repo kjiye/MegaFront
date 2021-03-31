@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+            * { margin:0; }
+            .bg {
+                padding:20px;
+                background-color:#ebebeb;
+                border:1px solid gray;
+            }
+            .box {
+                width:60px;
+                height:60px;
+                margin-bottom:20px;
+            }
+            .box:last-child {
+                margin-bottom:0px;
+            }
+            .bg:hover .box {
+                width:100%;
+                background-color:skyblue;
+                opacity:50%;
+                border-radius:12px;
+                transition-property:all;
+                transition-duration:5s;
+            }
+            .ease {
+                background-color:dodgerblue;
+                transition-timing-function:ease;
+            }
+            .linear {
+                background-color:darkseagreen;
+                transition-timing-function:linear;
+            }
+            .ease-in {
+                background-color:darkorange;
+                transition-timing-function:ease-in;
+            }
+            .ease-out {
+                background-color: cornflowerblue;
+                transition-timing-function:ease-out;
+            }
+            .ease-in-out {
+                background-color:dimgray;
+                transition-timing-function:ease-in-out;
+            }
+            .step-start {
+                background-color:darkviolet;
+                transition-timing-function:step-start;
+            }
+            .step-end {
+                background-color:forestgreen;
+                transition-timing-function:step-end;
+            }
+            
+        </style>
+    </head>
+    <body>
+       <!-- 
+           transition : property duration timing-function
+           
+           transition-property: all;
+           transition-duration: 4s;
+           transition-timing-function: linear;
+           
+           ease (기본값): 처음 속도와 마지막 속도가 일정
+           linear : 처음엔 천천히 시작하여 빨라지고 마지막에 다시 느려진다.
+           ease-in : 천천히 시작되어 정상 속도가 된다
+           ease-out : 마지막에 천천히 속도를 줄인 후 끝난다
+           ease-in-out : 천천히 시작되어 정상 속도가 되었다가 마지막에 느려진다
+           step-start : 시작점에만 표현한다
+           step-end : 끝점에서만 표현한다
+       -->
+        <div class="bg">
+            <div class="box ease">ease</div>
+            <div class="box linear">linear</div>
+            <div class="box ease-in">ease-in</div>
+            <div class="box ease-out">ease-out</div>
+            <div class="box ease-in-out">ease-in-out</div>
+            <div class="box step-start">step-start</div>
+            <div class="box step-end">step-end</div>
+        </div>
+                               
+    </body>
+</html>
+
+
+

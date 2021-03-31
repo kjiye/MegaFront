@@ -1,0 +1,147 @@
+<html>
+    <head>
+        <title>media query</title>
+        <style>
+            * {
+                margin:0;
+                padding:0;
+            }
+            .container {
+                padding:48px 0;
+                margin:0 auto;
+                width:80%;
+                background-color:#eeeeee;
+            }
+            header {
+                display:grid;
+                grid-template-columns:15% 85%;
+            }
+            ul {
+                display:inline-block;
+            }
+            li {
+                list-style:none;
+                margin-left:4px;
+                width:calc(25% - 4px);
+                float:left;
+                padding:20px 0;
+                background-color:yellowgreen;
+                text-align:center;
+                color:white;
+                font-weight:600;
+            }
+            #logo {
+                padding-top:12px;
+                background-color:yellowgreen;
+                font-size:30px;
+                font-weight:800;
+                text-align:center;
+                color:white;
+            }
+            .banner_wrapper {
+                margin-top:12px;
+            }
+            #banner {
+                width:100%;
+                height:400px;
+                background-color:lightblue;
+            }
+            .article_wrapper {
+                display:flex;
+                flex-direction:row;
+                justify-content:space-between;
+                margin-top:12px;
+            }
+            .article_wrapper article {
+                padding:100px 0;
+                width:calc((100% / 3) - 8px);
+                background-color:cornflowerblue;
+                text-align:center;
+            }
+            footer {
+                margin-top:12px;
+                background-color:#cccccc;
+                height:140px;
+            }
+            @media screen and (max-width:1024px) {
+                header {
+                    grid-template-columns:auto;
+                    grid-template-rows:1fr 1fr;
+                }
+                #logo {
+                    font-size:40px;
+                }
+                ul {
+                    margin-top:12px;
+                }
+                li {
+                    margin-left:0;
+                    width:25%;
+                }
+                #banner {
+                    height:280px;
+                }
+                .article_wrapper article {
+                    width:calc(100% / 2 - 8px);
+                }
+                .article_wrapper article:last-child {
+                    display:none;
+                }
+            }
+            @media screen and (max-width:540px) {
+                .container {
+                    width:100%;
+                }
+                #logo {
+                    padding-top:15px;
+                    font-size:30px;
+                }
+                #banner {
+                    height:240px;
+                }
+                .article_wrapper {
+                    display:flex;
+                    flex-direction:column;
+                }
+                .article_wrapper article {
+                    padding:50px 0;
+                    width:100%;
+                }
+                .article_wrapper article:nth-child(2) {
+                    margin-top:12px;
+                }
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <span id="logo">LOGO</span>
+                <ul>
+                    <li>메뉴1</li>
+                    <li>메뉴2</li>
+                    <li>메뉴3</li>
+                    <li>메뉴4</li>
+                </ul>
+            </header>
+            <section class="banner_wrapper">
+                <div id="banner">메인배너</div>
+            </section>
+            <section class="article_wrapper">
+                <article>내용</article>
+                <article>내용</article>
+                <article>내용</article>
+            </section>
+            <section class="article_wrapper">
+                <article>내용</article>
+                <article>내용</article>
+                <article>내용</article>
+            </section>
+            <footer>저작권 및 방침</footer>            
+        </div>
+    </body>
+</html>
+
+
+

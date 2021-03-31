@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+            .bg {
+                padding:10px;
+                background-color:#ebebeb;
+                border:1px solid black;
+                margin-bottom:10px;
+            }
+            .inner {
+                background-color:dodgerblue;
+            }
+            .box {
+                width:80px;
+                height:80px;
+            }
+            .translate {
+                transition: transform 1s linear;
+                transform: translate(20px, 20px);
+            }
+            .translate:hover {
+                transition: transform 1s linear;
+                transform: translate(0px, 0px);
+            }
+            .scale {
+                transition: transform 1s ease;
+                transform: scale(1.5);
+            }
+            .scale:hover {
+                transition: transform 1s ease;
+                transform: scale(1);
+            }
+            .skew {
+                transition: transform 1s ease-in;
+                transform: skew(10deg, 10deg);
+            }
+            .skew:hover {
+                transition: transform 1s ease-in;
+                transform: skew(0deg, 0deg);
+            }
+            .rotate {
+                transition: transform 1s ease-out;
+                transform: rotate(45deg);
+            }
+            .rotate:hover {
+                transition: transform 1s ease-out;
+                transform: rotate(0deg);
+            }
+            .complex {
+                transition: transform 1s ease-in-out;
+                transform: scale(.5) rotate(45deg);
+            }
+            .complex:hover {
+                transition: transform 1s ease-in-out;
+                transform: scale(1) rotate(0deg);
+            }
+
+        </style>
+    </head>
+    <body>
+       <!-- 
+           2D 트랜스폼 주요 속성들
+           대상 요서에 변형 효과를 적용할 때 사용하는 속성.
+           이동, 회전, 확대, 축소, 비틀기 효과 등.
+           transition과 함께 사용하여 애니메이션 효과를 만들 수 있다.
+           
+            translate(x,y) : 요소 위치를 X축으로 지정한 값만큼, Y축으로 지정한 값만큼 이동.
+            translateX(n) : 요소 위치를 X축으로 지정한 값만큼 이동.
+            translateY(n) : 요소 위치를 Y축으로 지정한 값만큼 이동.
+            scale(x,y) : 요소의 크기를 X축으로 x배, Y축으로 y배 확대 또는 축소.
+            scaleX(n) : 요소의 크기를 X축으로 x배 확대 또는 축소
+            scaleY(n) : 요소의 크기를 Y축으로 y배 확대 또는 축소
+            skew(x angle, y angle) : 요소를 X축으로 x 각도만큼, Y축으로 y 각도만큼 기울임.
+            skewX(x-angle) : 요소를 X축으로 x 각도만큼 기울임
+            skewY(y-angle) : 요소를 Y축으로 y 각도만큼 기울임
+            rotate(angle) : 요소를 angle만큼 회전.
+            complex : 혼합 사용.
+       -->
+       <!-- 
+           ease (기본값): 처음 속도와 마지막 속도가 일정
+           linear : 처음엔 천천히 시작하여 빨라지고 마지막에 다시 느려진다.
+           ease-in : 천천히 시작되어 정상 속도가 된다
+           ease-out : 마지막에 천천히 속도를 줄인 후 끝난다
+           ease-in-out : 천천히 시작되어 정상 속도가 되었다가 마지막에 느려진다
+       -->
+        <div class="bg box">
+            <div class="inner box translate">translate</div>
+        </div>
+        <div class="bg box">
+            <div class="inner box scale">scale</div>
+        </div>
+        <div class="bg box">
+            <div class="inner box skew">skew</div>
+        </div>
+        <div class="bg box">
+            <div class="inner box rotate">rotate</div>
+        </div>
+        <div class="bg box">
+            <div class="inner box complex">complex</div>
+        </div>                                
+    </body>
+</html>
+
+
+
