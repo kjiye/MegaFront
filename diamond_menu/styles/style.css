@@ -1,0 +1,35 @@
+* { margin:0;padding:0; }
+ul { padding-left:0; }
+li { list-style:none; }
+a { text-decoration:none }
+body { background-color:lightblue; }
+#container { width:425px;margin:200px auto; }
+.diamond { display:inline-block;width:100px;height:100px;transform:rotate(45deg); }
+#menu1 { background-color:#fbaf40;}
+#menu2 { background-color:#fcd546;}
+#menu3 { background-color:#f54653;}
+#menu4 { margin-left:90px;background-color:#69AFBD; }
+#menu5 { margin-left:20px;background-color:#B46280; }
+#menu4, #menu5 { margin-top:-50px; }
+#menu6 { margin-left:160px;margin-top:-50px;background-color:#FF4E50;}
+li { margin:20px;border-radius:2px; }
+.title {
+    /* 표의 셀 속성처럼 바꿔준다 - 셀이 차지하는 공간 내에서 손쉽게 수직, 수평 정렬을 적용할 수 있다 */
+    display:table-cell;
+    width:100px;
+    height:100px;
+    text-align:center;
+    /* 본래 vertical-align 속성은 inline-block이나 inline속성 요소에 사용할 때에는 요소 자체만을 정렬하고, table-cell 속성 요소에 사용하는 경우 요소 안의 내용에도 영향을 끼친다 (요소 내부에 속한 내용도 정렬 처리가 된다) */
+    vertical-align:middle;
+    color:#ffffff;
+    font-size:14px;
+    font-weight:bold;
+    /* 크로스 브라우징 */
+    /*transform:rotate(-45deg);*/
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+}
+/* 부모요소 > 자식요소 : 부모요소 아래의 자식요소를 지정할 때 사용 (직접적인 부모자식 관계의 태그에만 적용할 때 사용) */    
+.diamond:hover > .title { font-size:18px;transition:all .2s linear; }
