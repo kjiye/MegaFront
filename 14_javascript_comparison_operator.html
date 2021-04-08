@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>comparison operator</title>
+    </head>
+    <body>
+       <!-- 비교연산자 -->
+       <!-- 
+           a < b : a가 b미만일 때 true
+           a > b : a가 b초과일 때 true
+           a >= b : a가 b이상일 때 true
+           a <= b : a가 b이하일 때 true
+       -->
+       <!-- true / false : boolean 타입의 데이터 -->
+       <!-- "true" "false" 문자열 -->
+        <script>
+            const a = 10;
+            const b = 15;
+            const c = 15;
+            
+            console.log("a < b ", a < b);   // true
+            console.log("b > a ", b > a);   // true
+            console.log("b >= c ", b >= c); // true
+            console.log("a <= c", a <= c);  // true
+            console.log("b < c ", b < c);   // false
+            
+            // a === b : a와 b가 데이터 타입, 값 모두 일치할 때 true
+            // a == b : a와 b가 값만 일치해도 true (데이터 타입이 다를 시 자동으로 데이터 타입을 동일하게 맞춘 후 비교한다)
+            
+            const text = "10";
+            const number = 10;
+            
+            console.log("문자열 10과 정수 10의 == 비교 ",text == number);
+            console.log("문자열 10과 정수 10의 === 비교 ", text === number);
+            
+        </script>
+    </body>
+</html>
+
+
+
+
+
+

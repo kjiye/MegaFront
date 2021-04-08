@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>logical operator</title>
+    </head>
+    <body>
+        <!-- 논리연산자 -->
+        <!-- 
+            ! not
+            || or
+            && and
+        -->
+        <script>
+            const result = !((true && false) || (true && false) || !false);
+            // !(false || false || true)
+            // !true
+            // false
+            console.log(result);
+            
+            const result2 = ((true || false) && (true || false)) && false;
+            // (true && true) && false
+            // true && false
+            // false
+            console.log(result2);
+            
+            const result3 = !((!false && true) || (!true || true));
+            // !(true || true)
+            // false
+            console.log(result3);
+            
+            let welcome_message = "환영합니다~ 어서오세요!";
+            let greetings_message = "그동안 잘 지내셨나요? vip 고객님!";
+            let previous_visit_status = true;   // 이전 방문 이력 여부
+            let vip_status = true;              // vip고객 여부
+            
+            // true && true
+            if (previous_visit_status && vip_status) {
+                // 이전에 방문한 적 있음 && vip고객일 때
+                alert(greetings_message);
+            } else {
+                // 첫방문
+                // 이전에 방문한적 있으나 vip고객은 아닐 때
+                alert(welcome_message);
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
