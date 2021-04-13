@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>배열 array</title>
+    </head>
+    <body>
+        <script>
+            /* 배열 */
+            /*
+                여러 개의 데이터를 리스트와 같은 형식으로 관리할 때 사용.
+                (객체는 여러 종류의 데이터를 하나로 묶어서 관리하는 방식이라면 배열은 다수의 데이터를 저장할 때 더욱 유용하게 활용된다)
+            */
+            // 배열 선언 방식1
+            let array1 = new Array();
+            
+            // 배열 선언 방식2
+            // let array2 = [];
+            // 배열의 인덱스는 0번부터 시작한다***
+            let array2 = [1,2,3,4,5];
+            let empty_array = [];
+            
+            // 배열이름[접근하고픈 데이터의 인덱스]
+            array2[1] = 111;
+            console.log(array2);
+            console.log(array2[0]);
+            console.log("array2 배열의 크기 확인하기 ", array2.length); // 배열명.length
+            console.log("empty_array 배열의 크기 확인하기 ", empty_array.length);
+            
+            let order_list = [];
+            if (order_list.length > 0) {
+                console.log("주문리스트 보여주는 처리");
+            } else {
+                console.log("같이 쇼핑해봐요 문구 출력 처리");
+            }
+            
+            // 객체 배열
+            // [{}, {}, {}]
+            // 배열 안의 항목으로 객체가 들어올 수 있다
+            let object_array = [
+                {name : "홍길동", age : 10}, 
+                {name : "아무개", age : 18}, 
+                {name : "김영희", age : 12}
+            ];
+            
+            console.log(object_array);
+            console.log(object_array[1]);
+            console.log(object_array[1].name);
+            
+            // 배열과 관련된 함수들
+            
+            let laptops = ["LG gram", "macbook pro", "galaxy book flex"];
+            console.log("laptops 배열의 초기상태 : ", laptops);
+            
+            // push(추가할 값) : 배열의 가장 마지막에 값을 추가한다.
+            laptops.push("Lenovo Ideapad");
+            console.log(laptops);
+            
+            // pop() : 배열의 가장 마지막 값을 제거한다.
+            laptops.pop();
+            console.log(laptops);
+            
+            //  unshift(추가할 값) : 배열의 가장 앞에 값을 추가한다.
+            laptops.unshift("Lenovo Ideapad");
+            console.log(laptops);
+            
+            // shift() : 배열의 첫 번째 값을 제거한다.
+            laptops.shift();
+            console.log(laptops);
+            
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+

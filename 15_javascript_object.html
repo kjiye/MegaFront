@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>객체 object</title>
+    </head>
+    <body>
+        <script>
+            /* 객체 */
+            /*
+                자바스크립트는 객체 기반의 언어.
+                변수와 상수 하나의 별명에 한 종류의 데이터를 할당하는 방식을 취하지만, 객체는 하나의 별명에 여러 종류의 데이터를 넣을 수 있다.
+                
+                let 객체명 = {};
+                const 객체명 = {};
+                
+                중괄호 안에 키(key, 이름)와 값으로 구성된 프로퍼티(property)를 기술하는 방식으로 사용하며, 아무것도 들어가지 않은 빈 중괄호는 '빈 객체'라고 한다.
+                
+                let 객체명 = { 프로퍼티 키 : 프로퍼티 값 };
+            */
+            let object = { name : "김지예", email : "jj2njy@gmail.com", followers : 10, job : "개발자" };
+            console.log(object);
+            
+            // 객체 안의 데이터에 접근하는 방법1
+            // 객체명.내가 꺼내오고 싶은 데이터의 프로퍼티 키 명칭
+            console.log("팔로워 수 : ", object.followers);
+            
+            // let email = object.email;
+            // console.log(email);
+            
+            function makeSentence(userInfo) {
+                // return 값;
+                // 호출 주체에게 특정 값을 반환한다
+                return "안녕하세요 "+userInfo.name+"님. "+userInfo.email+"으로 임시비밀번호를 전송했습니다!";
+            }
+            
+            const call_result = makeSentence(object);
+            console.log("makeSentence 함수를 호출하여 리턴받은 결과 값 : ", call_result);
+            
+            // 객체 안의 데이터에 접근하는 방법2 (객체 구조 분해)
+            const { name, email, job, followers } = object;
+            
+            console.log("-------------------");
+            console.log(name);
+            console.log(followers);
+            console.log(email);
+            console.log("-------------------");
+            
+            function print(userInfo){
+                const {name} = userInfo; 
+                const job = userInfo.job;
+                //console.log(name+'님 반갑습니다~');
+                
+                // 문자열과 자바스크립트 객체를 함께 사용하는 또 다른 방법
+                console.log(`${name}님 반갑습니다~`); 
+            }
+            print(object);
+            
+            
+            // 객체 안에 함수를 프로퍼티 값으로 넣기
+            const obj = {
+                name : object.name,
+                email : object.email,
+                job : function job(){
+                    return "학생";
+                }
+            }
+            console.log(obj.job());
+            
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
