@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>event</title>
+        <style>
+            #box {
+                width:300px;
+                height:300px;
+                background-color:dodgerblue;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 이벤트 : 사용자의 행위를 감지하여 그 행위별 상황을 작성할 때 사용하는 속성 --> 
+        <!-- 
+            click : 마우스 클릭 시 발생
+            dbclick : 마우스 더블클릭 시 발생
+            mousedown : 마우스 누른 상태일 시 발생
+            mouseup : 마우스를 눌렀다가 놓을 시 발생 
+            mouseover : 마우스가 요소 영역 위로 올라갔을 때 발생
+            mouseout : 마우스가 요소 영역을 벗어났을 시 발생
+            mousemove : 마우스를 움직일 때 발생
+            focus : 입력 폼에 포커스가 생길 때 발생
+            blur : 입력 폼에 있던 포커스가 다른 곳으로 이동할 때 발생
+            change : 입력 폼의 내용이 변경될 시 발생
+            submit : 입력 폼을 서버로 전송할 때 발생
+            load : 웹 브라우저의 문서를 읽어올 때 발생
+            error : 에러가 발생할 때 
+            keypress : 키보드의 키를 눌렀을 때 발생
+            keyup : 키보드를 눌렀다가 놓았을 때 발생
+            resize : 윈도우 창이나 프레임의 크기를 조절할 때 발생
+        -->
+        <div id="box">event</div>
+        <!--<div id="box" onclick="eventTest();">event</div>-->
+        <!-- <input type="text" id="txt_box" placeholder="여기에 입력" onfocus="eventTest();"/>-->
+         <input type="text" id="txt_box" placeholder="여기에 입력" />
+       
+        <script>
+            function eventTest(){
+                console.log("이벤트 감지 및 함수 실행!");
+            };
+            
+            let box = document.getElementById("box");
+            console.log(box);
+            
+            //box.onclick = eventTest;
+            //box.ondblclick = eventTest;
+            //box.onmousedown = eventTest;
+            //box.onmouseover = eventTest;
+            //box.onmousemove = eventTest;
+            
+            let txt_box = document.getElementById("txt_box");
+            console.log(txt_box);
+            
+            //txt_box.onblur = eventTest;
+            txt_box.onchange = eventTest;
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+

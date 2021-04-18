@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>반복문</title>
+    </head>
+    <body>
+        <script>
+            /* 반복문 */
+            /* 어떠한 작업을 반복적으로 수행할 때 사용하는 구문 */
+            /*
+                for : 초기 값을 시작으로 지정한 조건을 만족할 때까지 반복한다.
+                
+                for (초기 값; 조건; 변화 구문) {
+                    실행할 작업 코드 (반복할 내용)
+                }
+            */
+            for (let i=0; i<5; i++) {
+                console.log("반복문 실행! ", i);
+            }
+            
+            for (let i=5; i>0; i--) {
+                console.log(i);
+                console.log('------------');
+            }
+            
+            // 배열과 함께 활용하기
+            const flowers = ["개나리", "진달래", "장미", "동백꽃"];
+            
+            // 초기 값 0에서 시작해서 3이 될 때까지 1씩 증가하며 반복 실행 (반복 실행하는 내용 콘솔에 개나리~동백꽃 출력)
+            for (let i=0; i<flowers.length; i++) {
+                //console.log(flowers[i]+ "입니다");
+                console.log(`${flowers[i]}입니다~~`);
+            }
+            
+            let numbers = [];
+            // numbers [1,2,3,4 ... 20]
+            for (let i=1; i<=20; i++){
+                numbers.push(i);
+            }
+            console.log(numbers);
+            
+            // 객체 배열과 함께 활용하기
+            let shopping_cart = [
+                {prod_name: '다이슨 선풍기', price: 1000},
+                {prod_name: '여성 골프화', price:3000},
+                {prod_name: '무항생제 우유', price: 500},
+                {prod_name: '휴대폰 케이스', price: 200},
+                {prod_name: '전기차', price: 4000}
+            ];
+            // shopping_cart[1].seller_name = "홍길동";
+            // delete : true / false
+            for (let i=0; i<shopping_cart.length; i++) {
+                if (shopping_cart[i].price >= 1000) {
+                    shopping_cart[i].delete = true;
+                } else {
+                    shopping_cart[i].delete = false;
+                }
+            }
+            console.log(shopping_cart);
+            
+            /*
+                for in 
+                객체와 함께 활용되는 반복문
+                객체의 내용을 배열처럼 다룰 수 있다
+            */
+            const cart = {
+                product_name : '휴대폰 케이스',
+                price : 2000,
+                discount : 500,
+                seller_name : '엘라고 공식몰'
+            };
+            
+            for (let key in cart) {
+                console.log(key);   // 객체 안의 프로퍼티 키를 추출한다
+                console.log(cart[key]);
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+

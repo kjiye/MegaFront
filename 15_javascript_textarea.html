@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>textarea</title>
+        <style>
+            body {
+                text-align:center;
+            }
+            #review {
+                width:400px;
+                margin:200px auto;
+                padding:10px;
+                border:2px solid dodgerblue;
+                border-radius: 4px;
+            }
+        </style>
+    </head>
+    <body>
+        <textarea id="review" rows="8" placeholder="리뷰를 작성해 주세요" onchange="checkLength();"></textarea>
+        
+        <script>
+            function checkLength (){
+                // 1) textarea 태그를 찾는다
+                let review = document.getElementById("review");
+                // 2) textarea에 입력된 값을 얻어온다
+                 let review_value = review.value;
+                // console.log(review_value);
+                // 3) 값(글자)의 길이를 점검하여 알림창을 띄운다
+                if (review_value.length < 10) {
+                    console.log(review_value.length);
+                    alert("10자 이상 작성해 주세요");
+                } else if (review_value.length >= 50) {
+                    alert("50자 이내로 작성해 주세요");
+                }
+                
+                // 함수를 끝낸다 (함수 종료)
+                // return; 아래로 작성된 코드는 실행되지 않는다.
+                return;
+            }
+            
+            
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
