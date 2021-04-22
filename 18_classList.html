@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>classList 활용</title>
+        <style>
+            .new {
+                background-color:aqua;
+                font-size:40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="test"></div>
+        <ul>
+            <li class="list">a</li>
+            <li class="list">b</li>
+            <li class="list">c</li>
+            <li class="list">d</li>
+            <li class="list">e</li>
+            <li class="list">f</li>
+            <li class="list">g</li>
+        </ul>
+        <script>
+            /*
+                classList: 요소의 클래스를 조작할 수 있는 속성
+                요소.classList
+                
+                add("클래스명") : 클래스를 추가한다
+                remove("클래스명) : 클래스를 삭제한다
+                contains("포함여부의 기준 클래스명") : 클래스 포함 여부를 판단한다
+                replace(old, new) : 클래스명을 바꾼다
+            */
+            let test_tag = document.querySelector(".test");
+            let list = document.querySelectorAll(".list");
+            
+            console.log(list);
+            
+            // forEach(함수(요소정보){ 실행코드 })
+            list.forEach(function(val, idx){
+                let new_class = "new";
+                
+                // 각각의 li요소.classList.add("new")
+                // val.classList.add(new_class);
+                
+                val.classList.remove("list");
+                
+                //console.log("aaaaa라는 클래스가 포함되어 있는지 ? ", val.classList.contains("aaaaa"));
+                
+                // % 나머지, / 몫
+                if (idx % 2 === 0) {
+                    console.log(idx);
+                    val.classList.add("new");
+                }
+            });
+            
+        
+        </script>
+    </body>
+</html>
+
+
+

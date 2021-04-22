@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <title>slider</title>
+        <style>
+            * {margin:0;padding:0;}
+            li {list-style:none;}
+            .slide_box {
+                width:200px;
+                height:100px;
+                position:relative;
+                left:40%;
+                top:200px;
+                overflow: hidden;
+                border-radius:12px;
+                /* 요소의 그림자 처리 */
+                /* offset-x offset-y blur-radius spread-radius color */
+                box-shadow: 2px 2px 6px 2px rgba(0,0,0,0.3)
+            }
+            .slide_container {
+                /* 200px * 5개 슬라이드 = 총 1000px */
+                width:1000px;
+            }
+            .slide {
+                width:200px;
+                height:100px;
+                float:left;
+            }
+            .slide a {
+                display: inline-block;
+                width:100%;
+                height:100%;
+                text-decoration: none;
+                text-align:center;
+                color: #000000;
+            }
+            /* 5, 3, 1 슬라이드 */
+/*            .slide:nth-child(-2n+5) {*/
+            .slide:nth-child(odd) {
+                background-color:dodgerblue;
+            }
+            /* 2, 4 슬라이드 */
+/*            .slide:nth-child(2n) {*/
+            .slide:nth-child(even) {
+                background-color: lightgray;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="slide_box">
+            <ul class="slide_container">
+                <li class="slide">
+                    <a href="https://naver.com">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Smile_Image.png" height="100"/>
+                    </a>
+                </li>
+                <li class="slide">
+                    <a href="https://daum.net">
+                         <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Smile_Image.png" height="100"/>                           
+                    </a>
+                </li>
+                <li class="slide">
+                    <a href="https://google.com">
+                        <img src="https://images.vexels.com/media/users/3/156051/isolated/preview/72094c4492bc9c334266dc3049c15252-flat-flower-icon-flower-by-vexels.png" height="100"/>
+                    </a>
+                </li>
+                <li class="slide">
+                    <a href="https://naver.com">
+                        <img src="https://image.flaticon.com/icons/png/512/686/686407.png" height="100"/>
+                    </a>
+                </li>
+                <li class="slide">
+                    <a href="#">
+                        <img src="https://i.pinimg.com/originals/1c/62/92/1c6292b7d8e5fe3808d0e36a62359b16.png" height="100"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <script>
+            
+            let ul = document.querySelector(".slide_container");
+            
+            function move(){
+                let n = 0;
+                // 5개
+                let count = document.getElementsByClassName("slide").length;    
+                // transform
+                // translateX() : 수평방향의 위치를 제어
+                // 자바스크립트로 css를 제어
+                // 요소.style.속성 = 속성값
+                // -200px  > -400px > -600px
+                
+                /*
+                    일정한 시간 간격으로 함수를 호출한다.
+                    setInterval(실행할 함수, 실행간격ms)
+                */
+                setInterval(function(){
+                    ul.style.transition = "0.2s";
+                    // (0) -200px (1)-400px (2)-600px .. (-1)-0px (0)-200px
+                    ul.style.transform = "translateX(-"+200*(n+1)+"px)";
+                    console.log("-"+200*(n+1)+"px");
+                    n++;
+                    
+                    //n이 가지고있는 값이 마지막 슬라이드인 4 n은 -1이 된다
+                    if (n === count-1) {
+                       n = -1; 
+                    }
+                }, 3000);
+            }
+            move();
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
