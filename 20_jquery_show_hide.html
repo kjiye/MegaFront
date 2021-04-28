@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title></title>
+        <script src="../0426/jQuery/lib/jquery-3.6.0.min.js"></script>
+        <style>
+            #btn {
+                display:inline-block;
+                padding:15px 20px;
+                border:2px solid #ed6d53;
+                border-radius:8px;
+                background-color:#ed6d53;
+                font-size:20px;
+                font-weight:600;
+                color:white;
+            }
+            #btn:hover {
+                background-color:white;
+                color:#ed6d53;
+                cursor:pointer;
+            }
+            .box {
+                display:none;
+                position:absolute;
+                top:80px;
+                left:50px;
+                width:400px;
+                height:200px;
+                box-sizing:border-box;
+                padding:12px;
+                background-color:#f5f5f5;
+                border-radius:10px;
+            }
+            .title {
+                font-size:13px;
+            }
+        </style>
+    </head>
+    <body>
+        <span id="btn" class="close">열기</span>
+        <div class="box">
+            <div class="title">작은 창을 출력합니다</div>
+        </div>
+        <script>
+            $(function(){
+                let button = $("#btn");
+                let box = $(".box");
+                
+                function close(){
+                    console.log("작은 창을 숨긴다");
+                    button.attr("class", "close");
+                    button.text("열기");
+                    box.hide(300);
+                }
+                
+                function open(){
+                    console.log("작은 창을 보여준다");
+                    button.removeAttr("class");
+                    // 해당요소의 글자를 변경한다
+                    button.text("닫기");
+                    box.show(300);
+                }
+                
+                // 버튼을 클릭했을 때
+                button.on("click", function(){
+                    // 버튼의 클래스 값을 얻어온다
+                    let btn_class = button.attr("class");
+                    console.log(btn_class);
+                    
+                    if (btn_class === 'close') {
+                        open();
+                    } else {
+                        close();
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
+
+
+

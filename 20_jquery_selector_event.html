@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title></title>
+        <script src="../0426/jQuery/lib/jquery-3.6.0.min.js"></script>
+        <style>
+            .hello {
+                padding-bottom:10px;
+                border-bottom:2px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <h4 id="title">제목</h4>
+        <p>내용</p>
+        
+        <script>
+            // document ready
+            $(function(){
+                // $("태그명")
+                // $(".클래스명")
+                // $("#아이디명")
+                let title_tag = $("#title");
+                let content_tag = $("p");
+                
+                console.log(title_tag);
+                console.log(content_tag);
+                
+                // element.on("event", 실행함수);
+                title_tag.on("click", function(){
+                    // attr --> attribute(속성)
+                    // attr("속성종류") : 해당 요소의 속성 값을 가져온다
+                    // attr("속성종류", "속성값") : 해당 요소에 추가할 속성과 그 값을 지정한다
+                    let id = title_tag.attr("id");
+                    alert(`아이디 값은 ? ${id}`);
+                    
+                    title_tag.attr("class", "hello");
+                });
+                
+                content_tag.on("mouseenter", function(){
+                    // css("속성종류", "속성값")
+                    // css({"속성종류": "속성값"})
+                    //content_tag.css("background-color", "red");
+                    //content_tag.css("font-size", "20px");
+                    //content_tag.css({"background-color": "red", "font-size": "20px"});
+                    content_tag.css("background-color", "red").css("font-size", "20px");
+                });
+                
+                content_tag.on("mouseleave", function(){
+                    // removeAttr() : 속성을 제거한다
+                    content_tag.removeAttr("style");    // 해당 요소의 style 속성을 제거한다
+                });
+                
+            });
+        </script>
+    </body>
+</html>
+
+
+

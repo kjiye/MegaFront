@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>jQuery 시작하기</title>
+        <!-- 라이브러리 파일은 가장 먼저 불러오기 위해서 head안에 명시한다 -->
+        <script src="../lib/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <h2>제이쿼리 시작하기!</h2>
+        <script>
+            // 제이쿼리에서 onload 처리하기
+            $(document).ready(function(){
+                // 실질적인 제이쿼리 코드 작성
+                console.log("HTML DOM구조가 모두 형성된 후에 script를 작동시킨다");
+                
+                let title = $("h2").text();
+                console.log(title);
+            });
+            
+        </script>
+    </body>
+</html>

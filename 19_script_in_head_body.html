@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>script의 위치</title>
+        <script>
+            console.log("head 내의 script 실행!");
+            
+            // 아직 태그가 내부적으로 다 인식되지 않았기 때문에 오류가 발생한다. '아무것도 없음', '값이 없음' 상태를 의미하는 null을 대상으로 innerHTML을 실행하려고 하니 값을 제대로 읽어들일 수 없다
+            let title1 = document.querySelector("h2").innerHTML;
+            
+            console.log("title1 ", title1);
+        </script>
+    </head>
+    <body>
+      <h2>제목을 표시하는 태그~~</h2>
+       <!-- 
+           브라우저의 동작 방식
+           HTML태그가 이루고 있는 DOM(Document Object Model 페이지의 컨텐츠를 구조화된 표현으로 구성한 문서)구조를 읽어들인다
+           실제 페이지에 렌더링될 수 있는 상태로 css를 결합한다
+           
+           HTML을 읽어들이는 중 script태그를 만나면 그 안의 스크립트 코드를 파싱(parsing 코드를 실행할 수 있는 상태로 해석 및 변환하는 것)한다
+           일반적으로 <script>의 위치를 <body>안의 가장 하단에 위치시킨다
+           HTML 요소를 다 읽어들이지 못한 상태에서 script를 수행시킨다면 아직 인식하지 못한 '없는 요소'를 대상으로 동작을 하려고 하기 때문에 오류가 발생할 수 있다
+       -->
+        <script>
+            console.log("body 내의 script 실행!");
+            
+            let title2 = document.querySelector("h2").innerHTML;
+            
+            console.log("title2 ", title2);
+        </script>
+    </body>
+</html>

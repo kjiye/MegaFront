@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>자바스크립트 onload</title>
+    </head>
+    <body>
+       <!-- 페이지 내 요소가 모두 준비된 후 자바스크립트 불러오기 -->
+        <script>
+//            window.onload = function(){
+//                console.log("자바스크립트 코드를 이 안에 작성");
+//            }
+            
+            // window에 DOMContentLoaded 이벤트를 등록해서 처리하는 방법
+            window.addEventListener('DOMContentLoaded', function(){
+                console.log("html 요소를 다 읽어들인 후에 script를 실행");
+            });
+        </script>
+    </body>
+</html>
