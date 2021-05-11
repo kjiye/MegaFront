@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>setTimeout</title>
+        <style>
+            .circle {
+                position:absolute;
+                top:20px;
+                width:500px;
+                height:500px;
+                border-radius:50%;
+                opacity:0.6;
+            }
+            .yellow {background-color:yellow;}
+            .coral {
+                background-color:coral;
+            }
+        </style>
+        <script src="../lib/jquery-3.6.0.min.js"></script>
+        <script>
+            $(function(){
+                // setTimeout 설정한 시간(ms)만큼 지연시간을 가진 후 실행
+                // setTimeout(실행함수, 지연시간);
+                setTimeout(function(){
+                    
+                    // $(".circle.coral").css({left:"250px"});
+                    // animate()
+                    // animate({적용할 스타일 속성}, 진행시간, 콜백함수);
+                    $(".circle.coral").animate({left : "250px"}, 6000, function(){
+                        // 노란색 circle을 안 보이게 처리
+                        // $(".circle.yellow").hide();
+                        $(".circle.yellow").animate({opacity: 0}, 3000, function(){
+                            alert("안 보이죠?");
+                        });
+                    });
+                    
+                }, 3000);
+                
+            });
+        </script>
+    </head>
+    <body>
+        <div class="circle yellow"></div>
+        <div class="circle coral"></div>
+    </body>
+</html>
+
+
+
+
+
+
+
+

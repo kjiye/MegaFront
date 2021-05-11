@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>ajax http 통신</title>
+        <style>
+            #memo {
+                padding:20px;
+                width:200px;
+                height:100px;
+                box-sizing:border-box;
+                background-color: antiquewhite;
+                font-size:20px;
+            }
+        </style>
+        <!-- jQuery CDN(Contents Delivery Network) -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        
+    </head>
+    <body>
+        <!-- 비트코인 가격 조회 API -->
+        <!-- https://api.coindesk.com/v1/bpi/currentprice.json -->
+        <!-- 강아지 사진 랜덤으로 제공하는 API -->
+        <!-- https://dog.ceo/api/breeds/image/random -->
+        
+        <button class="request">데이터 요청하기</button>
+        <div id="memo"></div>
+        
+        <script>
+            // ajax
+            /*
+            $.ajax({
+                url: "어쩌구/저쩌구.com",  // 클라이언트에서 http요청을 보낼 서버의 url(주소)
+                data: { key : value },   // http 요청과 함께 보낼 데이터
+                method: "GET",           // http 요청 메서드 종류
+                dataType: "json",        // 서버에서 응답으로 보내줄 데이터의 타입
+                success: function(data){    // http통신이 성공적으로 이루어졌을 때 실행되는 함수. 매개변수로 응답(response)데이터가 넘어온다
+                    
+                },
+                error: function(err){   // http통신에 실패했을 때 실행되는 함수. 매개변수로 해당 에러에 대한 정보를 담은 객체가 넘어온다
+                    
+                }
+            });
+            */
+            
+            // 특정 이름을 요청과 함께 보내면 그 이름이 가진 주 성별을 조회하는 AP
+            // https://api.genderize.io
+            // { name : "값" }
+            
+            // http 통신의 주요 method
+            // POST : 서버에 내용을 입력할 때 사용. 요청과 함께 보내는 데이터가 url에 표시되지 않는다.
+            // GET : 서버가 가진 데이터 및 정보를 조회할 때 사용. 요청과 함께 보내는 데이터가 url에 표시된다.
+            // PUT : POST와 유사한 작동. 내용을 갱신할 때 사용한다 (데이터 수정)
+            // DELETE : 리소스를 제거할 때 사용한다 (데이터 삭제)
+            $(".request").click(function(){
+                
+                $.ajax({
+                    url : "https://api.genderize.io",
+                    data : { name : "harry" },
+                    method : "GET",
+                    dataType : "json",
+                    success : function(data){
+                        console.log("response data ", data);
+                        console.log("gender : ", data.gender);
+                        // Iris >> female
+                        $("#memo").text(data.name + " >> " + data.gender);
+                    },
+                    error: function(err){
+                        console.log("에러 발생 !!!! ", err);
+                        alert("오류가 발생했습니다. 잠시 후에 다시 시도해 주세요!");
+                    },
+                });
+                
+            });
+            
+            
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

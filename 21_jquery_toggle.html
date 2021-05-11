@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>toggle</title>
+        <style>
+            #box {
+                margin: 10% auto;
+                background-color:darkturquoise;
+                width:400px;
+                border-radius:12px;
+            }
+            #text {
+                padding:60px 0;
+                text-align: center;
+                font-size:32px;
+                font-weight:800;
+                color:white;
+                letter-spacing:10px;
+            }
+        </style>
+        <script src="../lib/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                
+                function test(){
+                    console.log("콜백함수 잘 실행 중~~~");
+                }
+                
+                // click(실행함수)
+                $("body").click(function(){
+                    // toggle() : show()와 hide()를 번갈아가며 실행한다
+                    // toggle(진행시간ms, toggle작동 후 실행할 콜백함수);
+                    $("#box").toggle(1500, test);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="box">
+            <div id="text">Toggle</div>            
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+

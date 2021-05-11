@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <title>timer</title>
+    <style>
+      #timer_container {
+        margin:200px auto;
+        width:800px;
+/*        background-color:#c44d4d;*/
+        background: linear-gradient(to left, #b54747, #e36464);
+        padding:20px;
+        border-radius:12px;
+        text-align:center;
+      }
+      span {
+        display:inline-block;
+        margin-right:20px;
+        padding:10px;
+        width:30%;
+        background-color: #f26d6d;
+        box-sizing:border-box;
+        border-radius:10px;
+        font-size:90px;
+        font-weight:700;
+        color:white;
+        box-shadow: 8px 8px 8px 4px rgba(0,0,0,0.2);
+      }
+      span:last-child{
+        margin-right:0;
+      }
+    </style>
+    <script src="/jQuery/lib/jquery-3.5.1.min.js"></script>
+    <script>
+      $(function(){
+          function dailyMissionTimer(duration) {
+              // 시간 -> 초 변환
+              // 하루 24시간은 86400초 (86400 / 24)
+              let timer = duration * 3600;
+              let hours, minutes, seconds;
+              
+              // parseInt() 데이터 타입을 정수형태로 변환해주는 역할을 한다
+              let test = "3";
+              console.log(typeof parseInt(test));
+
+              let interval = setInterval(function(){
+                  // parseInt(변환할 값, 10) : 십진수로 변환한다는 설정
+                  // 초 -> 시간 변환
+                  hours	= parseInt(timer / 3600, 10);
+                  // 초 -> 분 변환 --> 몫을 반환
+                  minutes = parseInt(timer / 60 % 60, 10);
+                  // 60초 % 60 --> 몫을 반환
+                  seconds = parseInt(timer % 60, 10);
+                  
+                  // 자리수를 맞춰주기 위함 2 -> 02
+                  hours 	= hours < 10 ? "0" + hours : hours;
+                  minutes = minutes < 10 ? "0" + minutes : minutes;
+                  seconds = seconds < 10 ? "0" + seconds : seconds;
+                  
+                  // 태그 요소 안에 동적으로 글자를 넣어준다
+                  $('#hour').text(hours);
+                  $('#min').text(minutes);
+                  $('#sec').text(seconds);
+                  
+                  // -1씩 시간의 흐름이 진행되다가 0미만인 음수값이 되면 전역변수 timer의 값을 0으로 변경한다
+                  // clearInterval() : setInterval로 작동하는 함수를 멈추게 한다. (setInterval의 해제 처리)
+                  if (--timer < 0) {
+                      timer = 0;
+                      clearInterval(interval);
+                  }
+              }, 1000);
+          }
+
+          dailyMissionTimer(24);	// hour base
+      });
+    </script>
+  </head>
+  <body>
+    <div id="timer_container">
+      <span id="hour">00</span>
+      <span id="min">00</span>
+      <span id="sec">00</span>
+    </div>
+  </body>
+</html>

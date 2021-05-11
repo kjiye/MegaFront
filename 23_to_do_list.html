@@ -1,0 +1,159 @@
+<html>
+    <head>
+        <title>to do list</title>
+        <style>
+            * { margin:0;padding:0; }
+            body {
+                background:linear-gradient(to left,#93a5cf,#e4efe9);
+            }
+            .container {
+                width:800px;
+                margin:100px auto;
+                padding:20px;
+                background-color:rgba(255,255,255,0.3);
+            }
+            .input_text {
+                padding-bottom:10px;
+                width:100%;
+                border:0px;
+                outline:none;
+                border-bottom:2px solid #636363;
+                background:none;
+            }
+            h3 {
+                color: #636363;
+                margin: 10px 0;
+            }
+            .task {
+                width:100%;
+                background:rgba(255,255,255,0.5);
+                padding:18px;
+                margin:6px 0;
+                box-sizing: border-box;
+            }
+            .task i {
+                float:right;
+                margin-left:20px;
+                cursor: pointer;
+            }
+            .completed {
+                border-top:2px dotted #636363;
+            }
+            .completed .task {
+                background: rgba(0,0,0,0.5);
+                color:#ffffff;
+            }
+        </style>
+        
+        <!-- jQuery CDN(Contents Delivery Network) -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        
+        <!-- FontAwesome -->
+        <script src="https://kit.fontawesome.com/39309507ae.js" crossorigin="anonymous"></script>
+        
+    </head>
+    <body>
+       
+        <div class="container">
+            <input class="input_text" type="text" placeholder="내용을 입력해 주세요"/>
+            <div class="todo">
+                <h3><i class="far fa-check-square"></i> 할 일 목록</h3>
+                <!--
+                <div class="task">
+                    aaaaa
+                    <i class="far fa-trash-alt"></i>
+                    <i class="far fa-check-circle"></i>
+                </div>
+                -->
+            </div>
+            <div class="completed">
+                <h3><i class="fas fa-check-square"></i> 완료 목록</h3>
+                <!--
+                <div class="task">
+                    완료...
+                    <i class="far fa-trash-alt"></i>
+                </div>                
+                -->
+            </div>
+        </div>
+        <script>
+            // 키보드 누르고 뗄 때 발생하는 이벤트 keyup
+            $(".input_text").on("keyup", function(e){
+                // 이벤트가 발생되었을 때 자동으로 넘어오는 객체
+                // 해당 이벤트에 대한 정보가 담겨있음
+                console.log(e.keyCode);
+                // 엔터키의 키코드는 13
+                // 사용자가 엔터키를 누른 상태이면서(&&) 사용자가 입력한 값이 공백이 아닐 때
+                let input_val = $(".input_text").val();
+                
+                if (e.keyCode == 13 && input_val != "") {
+                    
+                    // 태그를 동적으로 생성하고 붙여줄 땐 $("html코드")의 형식으로 작성한다
+                    
+                    // 만들어줄 목록을 생성
+                    let task = $("<div class='task'></div>").text(input_val);
+                    
+                    // 눌렀을 때 완료목록으로 보내줄 버튼
+                    // 완료 버튼 역할을 할 아이콘과 그 아이콘에 연결된 이벤트 함수를 모두 check 변수에 저장
+                    let check = $("<i class='far fa-check-circle'></i>").click(function(){
+                        // 완료 버튼을 클릭했을 때 실행될 내용
+                        
+                        // 클릭된 아이콘의 부모요소를 얻어온다.
+                        let clicked_icon = $(this);
+                        let clicked_task = clicked_icon.parent();
+                        
+                        // 완료목록으로 보내기 위한 처리
+                        // fadeOut() : 선택한 요소를 서서히 사라지게 만드는 효과
+                        // fadeOut(진행시간ms, 서서히 사라질 때의 모양새(linear/swing), 사라진 후 실행되는 콜백함수)
+                        // 기본 값 : 400ms, swing
+                        clicked_task.fadeOut(300, "linear", function(){
+                            // 사라지는 처리가 끝난 후 완료목록에 리스트를 붙여준다
+                            $(".completed").append(clicked_task);
+                            
+                            // 서서히 보이게
+                            // fadeIn()
+                            clicked_task.fadeIn(function(){
+                                console.log("완료 목록으로 잘 이동했음!");
+                            });
+                            
+                            // 완료처리 버튼을 제거한다 (완료목록에서는 휴지통 버튼만 있어야 함)
+                            clicked_icon.remove();
+                        });
+                        
+                    });
+                    
+                    // 삭제 버튼 (휴지통 아이콘)
+                    let del = $("<i class='far fa-trash-alt'></i>").click(function(){
+                        // 삭제할 요소를 선택한다
+                        let clicked_task = $(this).parent();
+                        
+                        // 삭제할 요소를 서서히 사라지게 하고 화면에서 사라진 후에는 아예 요소 자체를 제거 처리한다
+                        clicked_task.fadeOut(300, "linear", function(){
+                           clicked_task.remove(); 
+                        });
+                    });
+                    
+                    task.append(check);
+                    task.append(del);
+                    
+                    // 태그를 적절한 위치에 넣어주는 처리
+                    // append()
+                    // 부모의 마지막 자식요소로 추가한다
+                    $(".todo").append(task);
+                    
+                    $(".input_text").val("");
+                    
+                }
+                
+            });
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
