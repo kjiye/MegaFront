@@ -21,7 +21,9 @@
         <!-- 강아지 사진 랜덤으로 제공하는 API -->
         <!-- https://dog.ceo/api/breeds/image/random -->
         
-        <button class="request">데이터 요청하기</button>
+        <button class="request">Iris</button>
+        <button class="request">Jane</button>
+        <button class="request">Luke</button>
         <div id="memo"></div>
         
         <script>
@@ -50,6 +52,7 @@
             // GET : 서버가 가진 데이터 및 정보를 조회할 때 사용. 요청과 함께 보내는 데이터가 url에 표시된다.
             // PUT : POST와 유사한 작동. 내용을 갱신할 때 사용한다 (데이터 수정)
             // DELETE : 리소스를 제거할 때 사용한다 (데이터 삭제)
+            /*
             $(".request").click(function(){
                 
                 $.ajax({
@@ -70,6 +73,28 @@
                 });
                 
             });
+            */
+            $(".request").click(function(){
+                let selected_name = $(this).text();
+                console.log(selected_name);
+                
+                $.ajax({
+                    url : "https://api.genderize.io",
+                    data : { name : selected_name },
+                    method : "GET",
+                    dataType : "json",
+                    success : function(data){
+                        if (data.gender) {
+                            $("#memo").text(data.name + " >> " + data.gender);
+                        }
+                    },
+                    error: function(err){
+                        console.log("에러 발생 !!!! ", err);
+                        alert("오류가 발생했습니다. 잠시 후에 다시 시도해 주세요!");
+                    },
+                });
+                
+            });            
             
             
         </script>

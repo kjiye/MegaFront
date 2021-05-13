@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>ajax http 통신</title>
+        <style>
+            #bg_img_view{
+                width:800px;
+                height:800px;
+                background-color: orange;
+            }
+        </style>
+        <!-- jQuery CDN(Contents Delivery Network) -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <!-- 비트코인 가격 조회 API -->
+        <!-- https://api.coindesk.com/v1/bpi/currentprice.json -->
+        <!-- 강아지 사진 랜덤으로 제공하는 API -->
+        <!-- https://dog.ceo/api/breeds/image/random -->
+        <button class="request">Call</button>
+        <img id="img_view" />
+        
+        <div id="bg_img_view"></div>
+        
+        <script>
+            $(".request").click(function(){
+                
+                /*
+                $.get("https://dog.ceo/api/breeds/image/random", function(data){
+                    console.log("서버로부터 받은 response data : ", data.message);
+                    // $("#img_view").attr("src", data.message);
+                    
+                    // background-image: url("배경이미지로 사용할 리소스의 경로");
+                    $("#bg_img_view").css("background-image", `url(${data.message})`);
+                });
+                */
+                
+                $.ajax({
+                    url:"https://api.coindesk.com/v1/bpi/currentprice.json",
+                    method: "GET",
+                    dataType: "json",
+                    success: function(data){
+                         console.log(data.bpi.EUR.symbol);
+                        // $("#bg_img_view").text(data.bpi.EUR.symbol);
+                        // html() 선택한 대상 요소를 가져오거나 새로 넣어줄 때 사용
+                        $("#bg_img_view").html(`<strong style="font-size:80px">${data.bpi.EUR.symbol}</strong>`);
+                    },
+                    error: function(err){
+                        alert("오류가 발생했습니다!");
+                    }
+                });
+                
+            });
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
