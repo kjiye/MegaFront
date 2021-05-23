@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+            input { outline-style:none;border:0; }
+            .addr_wrapper {
+                margin:60px;
+                width:800px;
+            }
+            .line {
+                margin-top:12px;
+                display:flex;
+                flex-direction:row;
+                border:2px solid #484f75;
+                font-size:22px;
+            }
+            .type {
+                display:inline-block;
+                padding:10px 0;
+                width:100px;
+                text-align:center;
+                background-color: #484f75;
+                color:white;
+                font-weight:600;
+            }
+            .value {
+                flex:1;
+                padding:10px 0 0 10px;
+                background-color:white;
+                color:#adadad;
+            }
+            .address2 {
+                flex:1;
+                padding-left:10px;
+                font-size:22px;
+            }
+            .address2::placeholder {
+                color:#adadad;
+            }
+            
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <!-- 다음 우편번호 서비스 파일 불러오기 -->
+        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    </head>
+    <body>
+        <!-- <button onclick="searchAddress();">주소 검색하기</button>-->
+        <div class="addr_wrapper">
+            <div class="line" onclick="searchAddress();">
+                <span class="type">주소</span>
+                <div class="value">주소를 입력해 주세요</div>
+            </div>
+            <div class="line">
+                <span class="type">상세주소</span>
+                <input class="address2" placeholder="상세주소를 입력해 주세요"/>
+            </div>
+        </div>
+                        
+        <script>
+            function searchAddress(){
+                
+                new daum.Postcode({
+                    oncomplete: function(data) {
+                        //console.log("우편번호 ", data.zonecode);
+                        //console.log("기본주소 ", data.address);
+                        let postal_code = data.zonecode;
+                        let address = data.address;
+                        
+                        $(".value").text("("+postal_code+") "+address);
+                        $(".value").css("color", "black");
+                    }
+                }).open();
+            }
+
+        </script>
+      </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
