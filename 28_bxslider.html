@@ -1,0 +1,58 @@
+<html>
+<head>
+  <title>bxslider</title>
+  <style>
+    img {
+      width:100%;
+    }
+    .text_wrapper {
+      position:absolute;
+      top:0;
+      left:0;
+      padding: 150px 0;
+      width:300px;
+      height:100%;
+      box-sizing:border-box;
+      background-color: rgba(0,0,0,0.5);
+      text-align:center;
+      /* font-size:60px; */
+      font-size: 20px;
+      font-weight:bold;
+      color:white;
+      letter-spacing:10px;
+    }
+  </style>
+  <!-- bxslider css -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <!-- jQuery CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- bxslider CDN -->
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      // bxslider에서 제공하는 다양한 옵션을 내가 원하는 설정에 맞게 객체로 지정한다
+      $('.slider').bxSlider({
+        auto: true,
+        mode: 'horizontal'
+      });
+    });
+  </script>
+
+</head>
+<body>
+
+  <div class="slider">
+    <!-- 슬라이드1 -->
+    <div>
+      <img src="https://cdn.pixabay.com/index/2021/04/30/09-58-39-26_1440x480.jpg"/>
+      <div class="text_wrapper">글자 표시</div>
+    </div>
+    <!-- 슬라이드2 -->
+    <div>
+      <img src="https://cdn.pixabay.com/index/2021/04/30/09-58-39-26_1440x480.jpg"/>
+    </div>
+  </div>
+
+</body>
+</html>

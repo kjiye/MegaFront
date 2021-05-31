@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <style>
+            #text {
+                text-align:center;
+                font-size:70px;
+                margin-top:100px;
+                opacity:0;
+            }
+            #bar {
+                width:500px;
+                margin-top:200px;
+            }
+            #bar .ui-widget-header {
+                background:orange;
+            }
+            #label {
+                font-size:12px;
+            }
+            #bar .ui-progressbar-value.ui-widget-header.ui-corner-left {
+                border:0;
+            }
+
+        </style>
+        <!-- jQuery UI CDN -->
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"/>
+
+        <!-- jQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+        <!-- jQuery UI js CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <!-- <div id="text">TEXT</div> -->
+
+        <div id="bar">
+            <div id="label">60%</div>
+        </div>
+
+        <script>
+            // queue 큐
+            // 애니메이션 큐: 특정 요소에서 실행될 여러 애니메이션 목록. 목록에 있는 애니메이션 실행 내용들을 순차적으로 작동시킨다
+            // 따라서 false로 변경하면 여러 동작을 동시에 실행시킬 수 있다
+            // $("#text").animate({opacity:1}, {duration:2000, queue:false});
+            // $("#text").animate({"margin-top": "0px"}, {duration:1200, queue:false});
+
+            $(function(){
+                let bar = $("#bar");
+            
+                // 프로그래스 바 생성
+                bar.progressbar({
+                    value: false,
+                    change: function(){
+                        console.log("변경사항 발생되었을 때 실행되는 함수!!");
+                    }
+                });
+
+                // value에 들어갈 값을 변경
+                function progress(){
+                    let val = bar.progressbar("value") || 0;
+                    console.log(val);
+                    bar.progressbar("value", val + 1);
+
+                    if (val < 60) {
+                        setTimeout(progress, 20);
+                    }
+                }
+                progress();
+            })
+
+
+        </script>
+    </body>
+</html>
