@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>메인페이지</title>
+        <style>
+            .list_container, .form_container {
+                margin:20px auto;
+                padding:20px;
+                width:1200px;
+                background-color:#edf5f4;
+            }
+            .item {
+                margin-top:8px;
+            }
+        </style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+        <!-- jQuery, semantic ui js -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    </head>
+    <body>
+        <div class="form_container">
+            <form class="ui form" action="/create/new" method="POST">
+                <div class="three fields">
+                  <div class="field">
+                    <label>이름</label>
+                    <input type="text" name="hr_name" placeholder="이름을 입력하세요">
+                  </div>
+                  <div class="field">
+                    <label>소속부서</label>
+                    <!-- <input type="text" name="department" placeholder="부서를 입력하세요"> -->
+                    <select class="ui dropdown" name="hr_department">
+                        <option value="">부서 선택</option>
+                        <% departments.forEach(function(item){ %>
+                            <option value="<%=item.department_idx%>"><%=item.department_name%></option>
+                        <% }) %>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label>직급</label>
+                    <!-- <input type="texts" name="position" placeholder="직급을 입력하세요"> -->
+                    <select class="ui dropdown" name="hr_position">
+                        <option value="">직급 선택</option>
+                        <% positions.forEach(function(item){ %>
+                            <option value="<%=item.position_idx%>"><%=item.position_name%></option>
+                        <% }) %>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" class="ui blue button">등록하기</button>
+            </form>
+        </div>
+        <div class="list_container">
+            <div class="ui list">
+                <h4>인사관리</h4>
+                <% list.forEach(function(data){ %>
+                <div class="item">
+                    <img class="ui avatar image" src="<%=data.image%>" onerror="this.src='/images/default.png'">
+                    <div class="content">
+                        <a href="/detail/<%=data.hr_idx%>" class="header"><%=data.hr_name%></a>
+                        <div class="description"><%=data.hr_name%>님은 <a><b><%=data.department_name%></b></a>팀의 <%=data.position_name%>입니다.</div>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+        <script>
+            $('.ui.dropdown').dropdown();
+        </script>
+    </body>
+</html>
