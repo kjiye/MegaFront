@@ -20,7 +20,9 @@ const MainModel = function(){
     };
 
     const create_new_user_ = function(data,callback) {
-        model.run("INSERT hr (hr_name, hr_department, hr_position) VALUES (:hr_name, :hr_department, :hr_position)", data,callback);
+        // hr_memo 컬럼 추가
+        model.run("INSERT hr (hr_name, hr_department, hr_position, hr_memo) \
+        VALUES (:hr_name, :hr_department, :hr_position, :hr_memo)", data,callback);
     }
 
     return {

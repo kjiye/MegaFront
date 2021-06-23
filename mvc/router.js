@@ -28,7 +28,7 @@ const Router = function(app){
     const DetailController = require('./controllers/DetailController');
 
     // localhost:3000/detail/글번호
-    app.get('/detail/:index',function(req,res){
+    app.get('/detail/:hr_idx',function(req,res){
         DetailController.detailView(req,res);
     });
 

@@ -25,7 +25,6 @@ const MainController = function (){
                 });
             });
         }
-
         // 직급 리스트 불러오기
         const getPositionList = function(){
             return new Promise(function(resolve) {
@@ -40,7 +39,6 @@ const MainController = function (){
                 });
             });
         }
-
         // 모델을 통해 데이터베이스에 저장된 리스트를 가져온다
         const getList = function(){
             return new Promise(function(resolve){

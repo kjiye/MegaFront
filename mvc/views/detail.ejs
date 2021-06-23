@@ -1,26 +1,62 @@
 <html>
     <head>
         <title>상세페이지</title>
+        <style>
+          .container {
+            margin:20px auto;
+            padding:20px;
+            width:1200px;
+          }
+          .ui.grid.mb {
+            margin-bottom:4px;
+          }
+          .ui.button.right.floated.ml {
+            margin-left:10px;
+          }
+          .content.center {
+            text-align: center;
+          }
+        </style>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+        <script src="/script/detail.js"></script>
     </head>
     <body>
-        <div class="ui card">
-            <div class="image">
-              <img src="<%=image%>">
+      <%- include('./modal') %>
+      <div class="container">
+        <% if (data.hr_memo) { %>     
+        <div class="ui icon message">
+          <i class="pencil alternate icon"></i>
+          <div class="content">
+            <div class="header">
+              비고사항
             </div>
-            <div class="content">
-              <a class="header"><%=name%></a>
-              <div class="meta">
-                <span class="date">2013년 입사</span>
-              </div>
-              <div class="description"><%=department%></div>
-            </div>
-            <div class="extra content">
-              <a>
-                <i class="user icon"></i>
-                <%=position%>
-              </a>
+            <p><%=data.hr_memo%></p>
+          </div>
+        </div>
+        <% } %>
+        <div class="ui grid mb" data-number="<%=data.hr_idx%>">
+          <div class="column">
+            <div class="ui raised segment">
+              <a class="ui blue ribbon label">등록 번호</a>
+              <span><%=data.hr_idx%></span><br><br>
+              <a class="ui blue ribbon label">직원 이름</a>
+              <span><%=data.hr_name%></span><br><br>
+              <a class="ui blue ribbon label">소속 부서</a>
+              <span><%=data.department_name%></span><br><br>
+              <a class="ui blue ribbon label">소속 직급</a>
+              <span><%=data.position_name%></span>
             </div>
           </div>
+        </div>
+        <a href="/main" class="ui right floated button ml">목록으로</a>
+        <button class="ui right floated icon green inverted button ml">
+          <i class="edit icon"></i>
+        </button>
+        <button id="trash_icon" class="ui right floated icon red inverted button">
+          <i class="trash alternate icon"></i>
+        </button>
+      </div>
     </body>
 </html>
