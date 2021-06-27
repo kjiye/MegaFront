@@ -27,9 +27,21 @@ const Router = function(app){
 
     const DetailController = require('./controllers/DetailController');
 
-    // localhost:3000/detail/글번호
+    // localhost:3000/detail/직원번호
     app.get('/detail/:hr_idx',function(req,res){
         DetailController.detailView(req,res);
+    });
+
+    app.delete('/detail/delete/:hr_idx', function(req,res){
+        DetailController.detailDeleteUser(req,res);
+    });
+
+    app.get('/detail/edit/form/:hr_idx', function(req,res){
+        DetailController.detailEditFormView(req,res);
+    });
+
+    app.post('/detail/update/:hr_idx', function(req,res){
+        DetailController.detailUpdateUser(req,res);
     });
 
 };
