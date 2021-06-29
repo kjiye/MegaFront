@@ -11,10 +11,28 @@ const DetailModel = function(){
         WHERE hr.hr_idx=:hr_idx",data,callback)
     }
 
+    const delete_user_ = function(data,callback){
+        model.run("DELETE FROM hr WHERE hr_idx=:hr_idx", data,callback);
+    }
+
+    const update_user_ = function(data,callback){
+        model.run('UPDATE hr SET hr_name=:hr_name,\
+        hr_department=:hr_department, \
+        hr_position=:hr_position, \
+        hr_memo=:hr_memo \
+        WHERE hr_idx=:hr_idx',data,callback);
+    }
+
     return {
         getDetailData: function(data,callback){
             get_detail_data_(data,callback);
-        }
+        },
+        deleteUser: function(data, callback){
+            delete_user_(data,callback);
+        },
+        updateUser: function(data,callback){
+            update_user_(data,callback);
+        },
     }
 };
 

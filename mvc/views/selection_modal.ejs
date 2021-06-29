@@ -1,0 +1,24 @@
+<div class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      <% if (page_type === 'department') { %>
+      부서
+      <% } else { %>
+      직급
+      <% } %>
+      정보 삭제
+    </div>
+    <div class="description">
+      <p>해당 정보를 정말 삭제하시겠습니까?</p>
+    </div>
+    <div class="actions">
+      <div class="ui black deny button">
+        취소
+      </div>
+      <div id="delete_btn" class="ui right labeled icon red button">
+        삭제하기
+        <i class="trash alternate icon"></i>
+      </div>
+    </div>
+</div>
+  

@@ -2,14 +2,11 @@
     <head>
         <title>메인페이지</title>
         <style>
-            .list_container, .form_container {
+            .form_container {
                 margin:20px auto;
                 padding:20px;
                 width:1200px;
-                background-color:#edf5f4;
-            }
-            .item {
-                margin-top:8px;
+                background-color:#efefef;
             }
         </style>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
@@ -19,11 +16,13 @@
     </head>
     <body>
         <div class="form_container">
-            <form class="ui form" action="/create/new" method="POST">
+            <input type="hidden" name="selected_department" value="<%=data.department_idx%>"/>
+            <input type="hidden" name="selected_position" value="<%=data.position_idx%>"/>
+            <form class="ui form" action="/detail/update/<%=data.hr_idx%>" method="POST">
                 <div class="three fields">
                   <div class="field">
                     <label>이름</label>
-                    <input type="text" name="hr_name" placeholder="이름을 입력하세요">
+                    <input type="text" name="hr_name" placeholder="이름을 입력하세요" value="<%=data.hr_name%>">
                   </div>
                   <div class="field">
                     <label>소속부서</label>
@@ -31,7 +30,7 @@
                     <select class="ui dropdown" name="hr_department">
                         <option value="">부서 선택</option>
                         <% departments.forEach(function(item){ %>
-                            <option value="<%=item.department_idx%>"><%=item.department_name%></option>
+                        <option value="<%=item.department_idx%>"><%=item.department_name%></option>
                         <% }) %>
                     </select>
                   </div>
@@ -49,33 +48,16 @@
                 <!-- 비고란 추가 -->
                 <div class="field">
                     <label>비고</label>
-                    <input type="text" name="hr_memo" placeholder="비고 작성">
+                    <input type="text" name="hr_memo" placeholder="비고 작성" value="<%=data.hr_memo%>">
                 </div>
-                <button type="submit" class="ui blue button">등록하기</button>
-                <!-- 선택 항목 데이터 관리페이지 이동 버튼 (부서, 직급) -->
-                <div class="ui right floated buttons">
-                    <a href="/department/edit/form" class="ui button">부서관리</a>
-                    <div class="or"></div>
-                    <a href="/position/edit/form" class="ui button">직급관리</a>
-                </div>
+                <button type="submit" class="ui blue button">수정하기</button>
             </form>
         </div>
-        <div class="list_container">
-            <div class="ui list">
-                <h4>인사관리</h4>
-                <% list.forEach(function(data){ %>
-                <div class="item">
-                    <img class="ui avatar image" src="<%=data.image%>" onerror="this.src='/images/default.png'">
-                    <div class="content">
-                        <a href="/detail/<%=data.hr_idx%>" class="header"><%=data.hr_name%></a>
-                        <div class="description"><%=data.hr_name%>님은 <a><b><%=data.department_name%></b></a>팀의 <%=data.position_name%>입니다.</div>
-                    </div>
-                </div>
-                <% }) %>
-            </div>
-        </div>
         <script>
-            $('.ui.dropdown').dropdown();
+            // 각각의 dropdown에 대한 처리
+            // $('.ui.dropdown').dropdown();
+            $('select[name=hr_department]').dropdown('set selected', $('input[name=selected_department]').val());
+            $('select[name=hr_position]').dropdown('set selected', $('input[name=selected_position]').val());
         </script>
     </body>
 </html>
