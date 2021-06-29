@@ -15,6 +15,7 @@ const DetailModel = function(){
         model.run("DELETE FROM hr WHERE hr_idx=:hr_idx", data,callback);
     }
 
+<<<<<<< HEAD
     const update_user_ = function(data,callback){
         model.run('UPDATE hr SET hr_name=:hr_name,\
         hr_department=:hr_department, \
@@ -23,16 +24,22 @@ const DetailModel = function(){
         WHERE hr_idx=:hr_idx',data,callback);
     }
 
+=======
+>>>>>>> 4ca06485cb4c8886e86791d059c1561f5a960f36
     return {
         getDetailData: function(data,callback){
             get_detail_data_(data,callback);
         },
         deleteUser: function(data, callback){
             delete_user_(data,callback);
+<<<<<<< HEAD
         },
         updateUser: function(data,callback){
             update_user_(data,callback);
         },
+=======
+        }
+>>>>>>> 4ca06485cb4c8886e86791d059c1561f5a960f36
     }
 };
 

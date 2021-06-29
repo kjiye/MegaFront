@@ -117,6 +117,7 @@ const DetailController = function(){
 
     const updateUser = function(req,res){
         // 클라이언트로부터 넘겨받은 수정데이터를 model에 넘겨 수정 Sql을 실행시킨다
+<<<<<<< HEAD
         let data = {};
         
         data = req.body;    // 이름, 부서, 직급, 메모 (form으로 전송한 데이터)
@@ -131,6 +132,9 @@ const DetailController = function(){
             }
         });
     };
+=======
+    }
+>>>>>>> 4ca06485cb4c8886e86791d059c1561f5a960f36
 
     return {
         detailView: function(req,res) {
