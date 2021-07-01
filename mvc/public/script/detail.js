@@ -33,7 +33,7 @@ const Init = function(){
                 console.log('에러 발생 ', err);
                 alert('문제가 발생했습니다. 잠시 후에 다시 시도해 주세요.');
             }
-        })
+        });
     };
 
     return {

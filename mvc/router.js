@@ -44,7 +44,6 @@ const Router = function(app){
         DetailController.detailUpdateUser(req,res);
     });
 
-<<<<<<< HEAD
     // 선택 항목 관리
     const SelectionController = require('./controllers/SelectionController');
 
@@ -56,8 +55,14 @@ const Router = function(app){
         SelectionController.positionEditFormView(req,res);
     });
 
-=======
->>>>>>> 4ca06485cb4c8886e86791d059c1561f5a960f36
+    app.delete('/selection/delete/:page_type', function(req,res){
+        SelectionController.deleteSelectionData(req,res);
+    });
+
+    app.post('/selection/add/:page_type', function(req,res){
+        SelectionController.createNewSelectionData(req,res);
+    });
+
 };
 
 module.exports = Router;

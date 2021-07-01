@@ -7,6 +7,9 @@
                 padding:20px;
                 width:1200px;
             }
+            .ui.table td.column.center {
+                text-align: center;
+            }
         </style>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -15,6 +18,7 @@
     </head>
     <body>
         <%- include('./selection_modal') %>
+        <input type="hidden" name="page_type" value="<%=page_type%>"/>
         <input type="hidden" name="selected_data" />
         <div class="container">
             <h4 class="ui horizontal divider header">
@@ -29,9 +33,9 @@
             <div class="ui form warning">
                 <div class="field">
                   <label>신규등록</label>
-                  <input type="text" placeholder="추가할 내용을 작성해 주세요">
+                  <input type="text" name="name" placeholder="추가할 내용을 작성해 주세요">
                 </div>
-                <div class="ui blue button">추가하기</div>
+                <div class="ui blue button add">추가하기</div>
             </div>
             <h4 class="ui horizontal divider header">
             <i class="bar chart icon"></i>
@@ -43,15 +47,19 @@
                 <% if (page_type === 'department') { %>
                 <tr data-number="<%=item.department_idx%>">
                     <td><%=item.department_name%></td>
-                    <td class="two wide column">
-                        <button class="ui inverted red mini button delete">삭제</button>
+                    <td class="one wide column center">
+                        <button class="ui icon red inverted button delete">
+                            <i class="trash alternate icon"></i>
+                        </button>
                     </td>
                 </tr>
                 <% } else { %>
                 <tr data-number="<%=item.position_idx%>">
                     <td><%=item.position_name%></td>
-                    <td class="two wide column">
-                        <button class="ui inverted red mini button delete">삭제</button>
+                    <td class="one wide column center">
+                        <button class="ui icon red inverted button delete">
+                            <i class="trash alternate icon"></i>
+                        </button>
                     </td>
                 </tr>
                 <% } %>
