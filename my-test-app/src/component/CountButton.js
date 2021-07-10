@@ -1,19 +1,18 @@
 import styled from 'styled-components';
 
-const ButtonView = styled.span`
-  display:inline-block;
-  padding: 12px;
-  border:2px solid black;
-  border-radius:6px;
-  cursor:pointer;
-  font-size:14px;
-  color:black;
+const Button = styled.span`
+    display:inline-block;
+    padding:12px;
+    border:2px solid black;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
 `;
 
 function CountButton(props){
-  return (
-    <ButtonView onClick={props.buttonEvent}>{props.name}</ButtonView>
-  )
+    return (
+        <Button onClick={props.buttonEvent}>{props.name}</Button>
+    );
 }
 
 export default CountButton;
