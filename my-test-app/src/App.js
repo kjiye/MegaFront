@@ -6,6 +6,7 @@ import HomeScreen from './screen/HomeScreen';
 import DetailScreen from './screen/DetailScreen';
 import EffectExampleScreen from './screen/EffectExampleScreen';
 import InputValidationScreen from './screen/InputValidationScreen';
+import ListRenderScreen from './screen/ListRenderScreen';
 
 // styled-components
 // const Box = styled.div`
@@ -55,6 +56,7 @@ function App() {
       <Route path="/detail" component={DetailScreen} />
       <Route path="/effect" component={EffectExampleScreen} />
       <Route path="/input" component={InputValidationScreen} />
+      <Route path="/list" component={ListRenderScreen}/>
     </Router>
   );
 }

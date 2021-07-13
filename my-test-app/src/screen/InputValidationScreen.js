@@ -11,6 +11,7 @@ const InputWrapper = styled.div`
 `;
 
 const InputBox = styled.input`
+    width:100%;
     border:0;
     outline:none;
     font-size:25px;
@@ -41,9 +42,7 @@ function InputValidationScreen(){
         // i 대소문자 구분 없음
 
         const regexp = /[~!@#$%^&*()_+|<>?:{}]/g;
-
-        console.log(regexp.test(inputValue));
-
+        setShowMessage(regexp.test(inputValue));
 
     }, [inputValue]);
 
@@ -61,9 +60,9 @@ function InputValidationScreen(){
                     }}
                     />
             </InputWrapper>
-
-            <WarnMessage>특수문자 사용금지</WarnMessage>
-
+            {showMessage && (
+                <WarnMessage>특수문자 사용금지</WarnMessage>
+            )}
         </Container>
     );
 }
