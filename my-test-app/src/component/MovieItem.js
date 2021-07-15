@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
     display:inline-block;
@@ -8,7 +9,11 @@ const Wrapper = styled.div`
     border-radius:6px;
 `;
 
-const Title = styled.h4`
+// const Title = styled.h4`
+//     padding-bottom:8px;
+// `;
+
+const Title = styled(Link)`
     padding-bottom:8px;
 `;
 
@@ -32,7 +37,8 @@ const MainText = styled.div`
 function MovieItem(props){
     return (
         <Wrapper>
-            <Title>{props.data.title_long}</Title>
+            {/* <Title to={{pathname: '/list/detail', state: props.data}}>{props.data.title_long}</Title> */}
+            <Title to={{pathname: '/list/api', movie_id: props.data.id}}>{props.data.title_long}</Title>
             <ImageView src={props.data.medium_cover_image} />
             <SubText>{props.data.runtime} min</SubText>
             <MainText>{props.data.summary}</MainText>

@@ -7,6 +7,8 @@ import DetailScreen from './screen/DetailScreen';
 import EffectExampleScreen from './screen/EffectExampleScreen';
 import InputValidationScreen from './screen/InputValidationScreen';
 import ListRenderScreen from './screen/ListRenderScreen';
+import ListDetailScreen from './screen/ListDetailScreen';
+import ListDetailApiScreen from './screen/ListDetailApiScreen';
 
 // styled-components
 // const Box = styled.div`
@@ -56,7 +58,9 @@ function App() {
       <Route path="/detail" component={DetailScreen} />
       <Route path="/effect" component={EffectExampleScreen} />
       <Route path="/input" component={InputValidationScreen} />
-      <Route path="/list" component={ListRenderScreen}/>
+      <Route path="/list" component={ListRenderScreen} exact/>
+      <Route path="/list/detail" component={ListDetailScreen}/>
+      <Route path="/list/api" component={ListDetailApiScreen}/>
     </Router>
   );
 }
