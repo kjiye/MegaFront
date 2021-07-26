@@ -1,0 +1,1 @@
+export const SERVER_URL = 'http://kimdev.cafe24.com:8080';
