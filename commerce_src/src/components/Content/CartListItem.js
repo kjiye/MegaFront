@@ -73,23 +73,23 @@ const DeleteButton = styled.span`
     cursor:pointer;
 `;
 
-function CartListItem(){
+function CartListItem({value, onDelete}){
     return (
         <Wrapper>
             <RowWrap>
-                <ProductImg src={sample} />
-                <ProductName>LANEIGE Cica Sleeping Mask 60ml</ProductName>
+                <ProductImg src={value.prod_img_url} />
+                <ProductName>[{value.prod_brand}] {value.prod_name}</ProductName>
             </RowWrap>
             <RowWrap>
                 <QuantityWrap>
-                    <NumberView>1234</NumberView>
+                    <NumberView>{value.prod_qty}</NumberView>
                     <ButtonView>
                         <Button>{"+"}</Button>
                         <Button style={{marginTop:6}}>{"-"}</Button>
                     </ButtonView>
                 </QuantityWrap>
-                <PriceView>10,000 {"₩"}</PriceView>
-                <DeleteButton>X</DeleteButton>
+                <PriceView>{(value.prod_price * value.prod_qty).toLocaleString()} {"₩"}</PriceView>
+                <DeleteButton onClick={() => { onDelete(value.prod_idx) }}>X</DeleteButton>
             </RowWrap>
         </Wrapper>
     )

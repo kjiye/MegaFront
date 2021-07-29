@@ -6,6 +6,8 @@ import ProudctListScreen from './screens/ProductListScreen';
 import CartScreen from './screens/CartScreen';
 import { CartBar, LogoHeader, NavigationBar } from './components/Head';
 import { BannerItem, BannerGroup } from './components/Banner';
+import ProductListScreen from './screens/ProductListScreen';
+import { useState } from 'react';
 
 const Container = styled.div`
   margin: 0 auto;
@@ -24,17 +26,30 @@ const FixedWrap = styled.div`
 `;
 
 function App() {
+
+  const [cartQty, setCartQty] = useState(0);
+
+  const cartQtyUp = (qty) => {
+    setCartQty(cartQty + qty);
+  };
+
+  const cartQtyDown = () => {
+  };
+
   return (
     <Container>
       <Router>
         <FixedWrap>
-          <CartBar />
+          <CartBar total={cartQty} />
           <LogoHeader/>
           <NavigationBar />
         </FixedWrap>
-        <Route path="/" component={HomeScreen} exact />
-        <Route path="/product/list/:menu_type" component={ProudctListScreen} />
-        <Route path="/product/detail/:prod_idx" component={ProductDetailScreen} />
+        {/* <Route path="/" component={HomeScreen} exact /> */}
+        <Route path="/" component={() => <HomeScreen cartQtyUp={cartQtyUp}/>} exact />
+        {/* <Route path="/product/list/:menu_type" component={ProudctListScreen} /> */}
+        <Route path="/product/list/:menu_type" component={() => <ProductListScreen cartQtyUp={cartQtyUp}/>} />
+        {/* <Route path="/product/detail/:prod_idx" component={ProductDetailScreen} /> */}
+        <Route path="/product/detail/:prod_idx" component={() => <ProductDetailScreen cartQtyUp={cartQtyUp}/>} />
         <Route path="/cart" component={CartScreen} />
       </Router>
     </Container>

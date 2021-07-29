@@ -102,7 +102,7 @@ const Message = styled.div`
     letter-spacing: 6px;
 `;
 
-function ProductDetailScreen(){
+function ProductDetailScreen({cartQtyUp}){
 
     const { prod_idx } = useParams();
 
@@ -112,14 +112,11 @@ function ProductDetailScreen(){
     const [qty, setQty] = useState(1);
     const [price, setPrice] = useState(0);
 
-    console.log(prod_idx);
-
     useEffect(() => {
         const getDetail = async () => {
             setIsLoading(true);
             const response = await axios.get(SERVER_URL+'/mega/product/detail/'+prod_idx);
             if (response.data.data) {
-                console.log(response.data.data);
                 setDetail(response.data.data);
                 setPrice(response.data.data.prod_price);
             }
@@ -127,6 +124,55 @@ function ProductDetailScreen(){
         };
         getDetail();
     }, [prod_idx]);
+
+    const onIncrease = () => {
+        // 수량 증가
+
+        // 구조 분해 할당 (...객체명)
+        // 배열 또는 객체를 해체하여 그 값을 변수에 담을 수 있게 한다 (안에 있는 값을 복사해서 넣어주는 것)
+        setDetail({
+            ...detail, 
+            prod_price : (qty + 1) * price
+        });
+        setQty(qty + 1);
+    };
+
+    const onDecrease = () => {
+        // 수량 감소
+        if (qty > 1) {
+            setDetail({
+                ...detail,
+                prod_price: (qty - 1) * price
+            });
+            setQty(qty - 1);
+        } else {
+            return;
+        }
+    };
+
+    const onClickCart = () => {
+        let newList = [];
+        let cartList = JSON.parse(sessionStorage.getItem("cartList"));
+        if (cartList) {
+            let duplication = false;
+            newList = cartList.map((v) => {
+                if (v.prod_idx === detail.prod_idx) {
+                    v.prod_qty = v.prod_qty + qty;
+                    duplication = true;
+                }
+                return v;
+            });
+            if (!duplication) {
+               newList = [...newList, {prod_idx : detail.prod_idx, prod_qty : qty}]; 
+            }
+        } else {
+            newList = [{prod_idx: detail.prod_idx, prod_qty : qty}];
+        }
+        console.log(newList);
+        sessionStorage.setItem("cartList", JSON.stringify(newList));
+        cartQtyUp(qty);
+        alert("장바구니에 추가했습니다!");        
+    }
 
     return (
         <Container>
@@ -141,12 +187,12 @@ function ProductDetailScreen(){
                     <InfoView>
                         <ProductName>[{detail.prod_brand}] {detail.prod_name}</ProductName>
                         <ButtonView>
-                            <QuantityButton>{"-"}</QuantityButton>
+                            <QuantityButton onClick={onDecrease}>{"-"}</QuantityButton>
                             <NumberView>{qty}</NumberView>
-                            <QuantityButton>{"+"}</QuantityButton>
+                            <QuantityButton onClick={onIncrease}>{"+"}</QuantityButton>
                         </ButtonView>
                         <PriceView>{detail.prod_price.toLocaleString()} {"₩"}</PriceView>
-                        <SingleButton>CART</SingleButton>
+                        <SingleButton onClick={onClickCart}>CART</SingleButton>
                         <SingleButton>BUY IT NOW</SingleButton>
                     </InfoView>
                 </ProductWrapper>

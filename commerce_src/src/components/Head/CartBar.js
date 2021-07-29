@@ -40,13 +40,13 @@ const CountText = styled(ItemText)`
     border-radius:20%;
 `;
 
-function CartBar(){
+function CartBar({total}){
     return (
         <Wrapper to="/cart">
             <ItemView>
                 <Icon src={cart}/>
                 <ItemText>CART</ItemText>
-                <CountText>13</CountText>
+                <CountText>{total}</CountText>
             </ItemView>
         </Wrapper>
     );

@@ -38,7 +38,7 @@ function getFullTitle(menu_type){
     }
 }
 
-function ProductListScreen(){
+function ProductListScreen({cartQtyUp}){
     const { menu_type } = useParams();  // new, best, md
 
     const [isLoading, setIsLoading] = useState(true);
@@ -65,7 +65,7 @@ function ProductListScreen(){
                 ) : list.length > 0 ? (
                     list.map((value, index) => {
                         return (
-                            <ProductListItem key={index.toString()} value={value}/>
+                            <ProductListItem key={index.toString()} value={value} cartClick={cartQtyUp}/>
                         )
                     })
                 ) : (

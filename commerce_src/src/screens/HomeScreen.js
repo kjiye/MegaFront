@@ -24,7 +24,7 @@ const Message = styled.div`
     letter-spacing: 6px;
 `;
 
-function HomeScreen(){
+function HomeScreen({cartQtyUp}){
 
     const [newList, setNewList] = useState([]);
     const [bestList, setBestList] = useState([]);
@@ -46,7 +46,6 @@ function HomeScreen(){
         getProductList();
     }, []);
 
-
     return (
         <>
         <BannerGroup bannerList={[
@@ -61,7 +60,11 @@ function HomeScreen(){
                 {newList.length > 0 ? (
                     newList.map((value, index) => {
                         return (
-                            <ProductListItem key={index.toString()} value={value}/>
+                            <ProductListItem 
+                                key={index.toString()} 
+                                value={value} 
+                                cartClick={cartQtyUp}
+                                />
                         )
                     })
                 ) : (
@@ -73,7 +76,11 @@ function HomeScreen(){
                 {bestList.length > 0 ? (
                     bestList.map((value, index) => {
                         return (
-                            <ProductListItem key={index.toString()} value={value}/>
+                            <ProductListItem 
+                                key={index.toString()} 
+                                value={value}
+                                cartClick={cartQtyUp}
+                                />
                         )
                     })
                 ) : (
@@ -85,7 +92,11 @@ function HomeScreen(){
                 {mdList.length > 0 ? (
                     mdList.map((value, index) => {
                         return (
-                            <ProductListItem key={index.toString()} value={value}/>
+                            <ProductListItem 
+                                key={index.toString()} 
+                                value={value}
+                                cartClick={cartQtyUp}
+                                />
                         )
                     })
                 ) : (
