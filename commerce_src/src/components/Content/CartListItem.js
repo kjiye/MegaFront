@@ -59,8 +59,9 @@ const Button = styled.div`
 `;
 
 const PriceView = styled.div`
-    padding-left:80px;
+    width:250px;
     font-size: 22px;
+    text-align:center;
 `;
 
 const DeleteButton = styled.span`
@@ -73,7 +74,7 @@ const DeleteButton = styled.span`
     cursor:pointer;
 `;
 
-function CartListItem({value, onDelete}){
+function CartListItem({value, onDelete, onIncrease, onDecrease}){
     return (
         <Wrapper>
             <RowWrap>
@@ -84,8 +85,13 @@ function CartListItem({value, onDelete}){
                 <QuantityWrap>
                     <NumberView>{value.prod_qty}</NumberView>
                     <ButtonView>
-                        <Button>{"+"}</Button>
-                        <Button style={{marginTop:6}}>{"-"}</Button>
+                        <Button onClick={() => {onIncrease(value.prod_idx)}}>{"+"}</Button>
+                        <Button 
+                            style={{marginTop:6}}
+                            onClick={() => {
+                                onDecrease(value.prod_idx);
+                            }}
+                            >{"-"}</Button>
                     </ButtonView>
                 </QuantityWrap>
                 <PriceView>{(value.prod_price * value.prod_qty).toLocaleString()} {"₩"}</PriceView>

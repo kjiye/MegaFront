@@ -12,14 +12,15 @@ const Container = styled.div`
 `;
 
 const Message = styled.div`
-    padding:40px 0;
-    font-size:24px;
+    padding:60px 0;
+    font-size:20px;
     font-weight:bold;
     color: #7a7a7a;
     letter-spacing: 6px;
+    text-align:center;
 `;
 
-function CartScreen(){
+function CartScreen({cartQtyUp, cartQtyDown}){
 
     const [isLoading, setIsLoading] = useState(true);
     const [list, setList] = useState([]);
@@ -61,12 +62,57 @@ function CartScreen(){
     }, []);
 
     const onClickDelete = (prod_idx) => {
-        let downQty = 0;
+        let downQty = 0;    // 상단 cartBar 수량에서 감소시킬 수량을 기억하는 변수
         const newList = list.filter((v) => v.prod_idx !== prod_idx);    // 삭제 상품만 제외한 나머지 데이터를 필터링
-        sessionStorage.setItem("cartList", JSON.stringify(newList));    // 새로 필터링된 배열을 세션에 저장
+        list.map((v) => {
+            if (v.prod_idx === prod_idx) {
+                // 감소시킬 수량 정보를 찾은 후 downQty에 저장한다
+                downQty += v.prod_qty;
+            }
+        });
+        // 필터링된 배열을 list state에 저장한다
         setList(newList);
+        
+        if (newList.length > 0) {
+            // 장바구니에 최소 1개 이상의 데이터를 가지고 있을 때 세션 정보를 수정한다
+            sessionStorage.setItem("cartList", JSON.stringify(newList));
+        } else {
+            // 모든 리스트가 삭제되었을 때 cartList정보를 세션에서 삭제한다
+            sessionStorage.removeItem("cartList");
+        }
         // 카트바 수량 감소 처리
-        // cartQtyDown(downQty);
+        cartQtyDown(downQty);
+    };
+
+    // 수량 증가 버튼 실행 함수
+    const onIncrease = (prod_idx) => {
+        // 수량 증가 처리된 리스트를 세션에 저장
+        const newList = list.map((v) => {
+            if (v.prod_idx === prod_idx) {
+                v.prod_qty++;
+            }
+            return v;
+        });
+        sessionStorage.setItem("cartList", JSON.stringify(newList));
+        // 카트바 수량 증가
+        cartQtyUp(1);
+    };
+
+    // 수량 감소 버튼 실행 함수
+    const onDecrease = (prod_idx) => {
+        let down = false;
+        const newList = list.map((v) => {
+            if (v.prod_idx === prod_idx) {
+                if (v.prod_qty > 1) {
+                    v.prod_qty--;
+                    down = true;
+                }
+            }
+            return v;
+        });
+        sessionStorage.setItem("cartList", JSON.stringify(newList));
+        // 카트바 수량 감소
+        down && cartQtyDown(1);
     };
 
     return (
@@ -82,6 +128,8 @@ function CartScreen(){
                             key={index.toString()} 
                             value={value}
                             onDelete={onClickDelete}
+                            onIncrease={onIncrease}
+                            onDecrease={onDecrease}
                             />
                     )
                 })    

@@ -49,10 +49,10 @@ function HomeScreen({cartQtyUp}){
     return (
         <>
         <BannerGroup bannerList={[
-            { filename : "sample_banner1.png"},
-            { filename : "sample_banner2.png"},
-            { filename : "sample_banner3.png"},
-            { filename : "sample_banner4.png"},
+            { filename : "sample_banner4.png", path : '/product/detail/13'},
+            { filename : "sample_banner2.png", path : '/product/detail/15'},
+            { filename : "sample_banner3.png", path : '/product/detail/4'},
+            { filename : "sample_banner1.png", path : '/product/detail/8'},
         ]}/>
         <Container>
             <MainTitle title={"NEW ARRIVAL"}/>

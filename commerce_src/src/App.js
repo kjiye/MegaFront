@@ -33,7 +33,8 @@ function App() {
     setCartQty(cartQty + qty);
   };
 
-  const cartQtyDown = () => {
+  const cartQtyDown = (qty) => {
+    setCartQty(cartQty - qty);
   };
 
   return (
@@ -50,7 +51,7 @@ function App() {
         <Route path="/product/list/:menu_type" component={() => <ProductListScreen cartQtyUp={cartQtyUp}/>} />
         {/* <Route path="/product/detail/:prod_idx" component={ProductDetailScreen} /> */}
         <Route path="/product/detail/:prod_idx" component={() => <ProductDetailScreen cartQtyUp={cartQtyUp}/>} />
-        <Route path="/cart" component={CartScreen} />
+        <Route path="/cart" component={() => <CartScreen cartQtyUp={cartQtyUp} cartQtyDown={cartQtyDown}/>} />
       </Router>
     </Container>
   );

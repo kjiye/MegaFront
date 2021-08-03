@@ -5,6 +5,7 @@ import sample from '../../image/sample_banner1.png';
 const View = styled.div`
     width:100%;
     height:400px;
+    cursor: pointer;
 `;
 
 const BannerImage = styled.img`
